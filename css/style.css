@@ -1,1 +1,103 @@
+/* Reset Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: #0f172a;
+    color: #f8fafc;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #1e293b;
+    padding: 1rem 0;
+    border-bottom: 1px solid #334155;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #38bdf8;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.25rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #38bdf8;
+}
+
+/* Hero Section */
+.hero {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #f8fafc;
+}
+
+.hero-content p {
+    color: #94a3b8;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #38bdf8;
+    color: #0f172a;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: #0ea5e9;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: #64748b;
+    border-top: 1px solid #334155;
+    margin-top: 50px;
+}
