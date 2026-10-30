@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Portofolio Saya</title>
+    <!-- Path CSS disesuaikan karena berada di dalam folder page -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Header / Navigasi -->
+    <header class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Portofolio</a>
+            <nav class="nav-links">
+                <a href="../index.html"><i data-lucide="home"></i> Home</a>
+                <a href="projects.html"><i data-lucide="code"></i> Projects</a>
+                <a href="contact.html"><i data-lucide="mail"></i> Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Konten Kontak -->
+    <main class="container" style="padding: 60px 20px;">
+        <h1 style="margin-bottom: 20px; font-size: 2rem;">Hubungi Saya</h1>
+        <p style="color: #94a3b8; margin-bottom: 40px;">Punya pertanyaan, proyek menarik, atau ingin berkolaborasi? Jangan ragu untuk menghubungi saya melalui tautan di bawah ini.</p>
+        
+        <div style="display: flex; flex-direction: column; gap: 16px; max-width: 400px;">
+            <a href="mailto:email@example.com" class="btn" style="justify-content: center; background-color: #1e293b; color: #f8fafc; border: 1px solid #334155;">
+                <i data-lucide="mail"></i> Kirim Email
+            </a>
+            <a href="https://github.com/noellandxyza" target="_blank" class="btn" style="justify-content: center; background-color: #1e293b; color: #f8fafc; border: 1px solid #334155;">
+                <i data-lucide="github"></i> GitHub Profile
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Portofolio Saya. All rights reserved.</p>
+    </footer>
+
+    <!-- Inisialisasi Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
