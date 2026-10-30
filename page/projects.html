@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyek - Portofolio Saya</title>
+    <!-- Path CSS disesuaikan karena berada di dalam folder page -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Header / Navigasi -->
+    <header class="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo">Portofolio</a>
+            <nav class="nav-links">
+                <a href="../index.html"><i data-lucide="home"></i> Home</a>
+                <a href="projects.html"><i data-lucide="code"></i> Projects</a>
+                <a href="contact.html"><i data-lucide="mail"></i> Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Konten Proyek -->
+    <main class="container" style="padding: 60px 20px;">
+        <h1 style="margin-bottom: 20px; font-size: 2rem;">Daftar Proyek</h1>
+        <p style="color: #94a3b8; margin-bottom: 40px;">Berikut adalah beberapa proyek dan karya yang sedang atau telah saya kembangkan.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+            <!-- Kartu Proyek 1 -->
+            <div style="background-color: #1e293b; border: 1px solid #334155; padding: 20px; border-radius: 8px;">
+                <h3 style="margin-bottom: 10px; color: #38bdf8; display: flex; align-items: center; gap: 8px;">
+                    <i data-lucide="folder-git-2"></i> Proyek Pertama
+                </h3>
+                <p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 20px;">Deskripsi singkat mengenai proyek keren yang sedang dikerjakan dengan struktur kode yang bersih.</p>
+                <a href="#" class="btn" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+                    <i data-lucide="external-link"></i> Lihat Detail
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Portofolio Saya. All rights reserved.</p>
+    </footer>
+
+    <!-- Inisialisasi Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
