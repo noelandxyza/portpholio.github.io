@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="id" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PORTFOLIO — Noel / Creative Developer & UI Designer</title>
+    <title>PORTOFOLIO — Firman M. Ubaidah / Creative Developer</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -11,14 +11,15 @@
     <!-- Lucide Icons CDN -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Google Fonts: Montserrat & Plus Jakarta Sans -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,900;1,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,900;1,900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 
     <!-- Tailwind Configurations -->
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -28,11 +29,19 @@
                             dark: '#111111',
                             muted: '#666666',
                             border: '#D4D2CB'
+                        },
+                        darkmode: {
+                            bg: '#0a0a0a',
+                            surface: '#141414',
+                            light: '#ededed',
+                            muted: '#a1a1a1',
+                            border: '#262626'
                         }
                     },
                     fontFamily: {
                         sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        display: ['Montserrat', 'sans-serif']
+                        display: ['Montserrat', 'sans-serif'],
+                        blackletter: ['"UnifrakturMaguntia"', 'cursive']
                     },
                     letterSpacing: {
                         superwide: '0.25em'
@@ -44,9 +53,7 @@
 
     <style>
         body {
-            background-color: #E6E5E1;
-            color: #111111;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             overflow-x: hidden;
             user-select: none;
         }
@@ -58,38 +65,19 @@
             background-size: 60px 60px;
         }
 
+        .dark .bg-grid-lines {
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+        }
+
         .giant-heading {
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
-            font-size: clamp(3.8rem, 16vw, 22rem);
+            font-size: clamp(2.2rem, 11vw, 16rem);
             line-height: 0.85;
             letter-spacing: -0.05em;
-            color: #111111;
             z-index: 10;
-        }
-
-        .hero-person-container {
-            position: relative;
-            z-index: 20;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            width: 100%;
-            height: 78vh;
-            max-height: 850px;
-            pointer-events: none;
-        }
-
-        .hero-person-canvas {
-            height: 100%;
-            width: auto;
-            max-width: 100%;
-            object-fit: contain;
-            pointer-events: auto;
-            cursor: pointer;
-            transition: transform 0.15s ease-out;
-            will-change: transform;
-            filter: drop-shadow(0 25px 35px rgba(0,0,0,0.15));
         }
 
         .no-scrollbar::-webkit-scrollbar {
@@ -101,7 +89,7 @@
         }
 
         .progress-bar-fill {
-            transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .hover-underline-animation {
@@ -116,659 +104,1698 @@
             height: 1.5px;
             bottom: -2px;
             left: 0;
-            background-color: #111111;
+            background-color: currentColor;
             transform-origin: bottom right;
-            transition: transform 0.3s ease-out;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .hover-underline-animation:hover::after {
             transform: scaleX(1);
             transform-origin: bottom left;
         }
+
+        @keyframes otherworldlyFade {
+            0% { opacity: 0; transform: translateY(35px) scale(0.97) rotateX(5deg); filter: blur(8px); }
+            100% { opacity: 1; transform: translateY(0) scale(1) rotateX(0deg); filter: blur(0); }
+        }
+        .animate-fade-in {
+            animation: otherworldlyFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes quantumFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(1deg); }
+        }
+        .animate-quantum-float {
+            animation: quantumFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes soundWave {
+            0%, 100% { height: 8px; }
+            50% { height: 28px; }
+        }
+        .wave-bar-1 { animation: soundWave 1.2s infinite ease-in-out; }
+        .wave-bar-2 { animation: soundWave 0.8s infinite ease-in-out 0.2s; }
+        .wave-bar-3 { animation: soundWave 1.5s infinite ease-in-out 0.4s; }
+        .wave-bar-4 { animation: soundWave 0.9s infinite ease-in-out 0.1s; }
     </style>
 </head>
-<body class="bg-editorial-bg text-editorial-dark relative min-h-screen flex flex-col justify-between overflow-x-hidden antialiased bg-grid-lines">
+<body class="bg-editorial-bg text-editorial-dark dark:bg-darkmode-bg dark:text-darkmode-light relative min-h-screen flex flex-col justify-between overflow-x-hidden antialiased bg-grid-lines">
 
     <!-- Toast Notification Message Container -->
-    <div id="toast" class="fixed top-20 right-6 z-50 bg-editorial-dark text-white text-xs font-semibold uppercase tracking-widest px-5 py-3 rounded-none shadow-2xl opacity-0 pointer-events-none transition-all duration-300 transform translate-y-[-10px] flex items-center gap-3">
-        <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
+    <div id="toast" class="fixed top-20 right-6 z-50 bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg text-xs font-semibold uppercase tracking-widest px-5 py-3 shadow-2xl opacity-0 pointer-events-none transition-all duration-400 transform translate-y-[-15px] flex items-center gap-3 backdrop-blur-md">
+        <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 animate-bounce"></i>
         <span id="toast-message">Action completed successfully</span>
     </div>
 
     <!-- ==================== HEADER / NAVBAR ==================== -->
-    <header class="fixed top-0 left-0 w-full z-40 px-6 sm:px-12 py-6 flex items-center justify-between backdrop-blur-md bg-editorial-bg/80 border-b border-editorial-dark/10 transition-all duration-300">
+    <header class="fixed top-0 left-0 w-full z-40 px-3 sm:px-12 py-3.5 sm:py-5 flex items-center justify-between backdrop-blur-xl bg-editorial-bg/80 dark:bg-darkmode-bg/80 border-b border-editorial-dark/10 dark:border-darkmode-border transition-all duration-500">
         
-        <!-- Left Navigation Links -->
-        <nav class="hidden md:flex items-center space-x-8 text-xs font-bold uppercase tracking-superwide">
-            <button onclick="switchView('hero')" class="nav-btn hover-underline-animation active-nav" data-target="hero">HOME</button>
-            <button onclick="switchView('about')" class="nav-btn hover-underline-animation opacity-60 hover:opacity-100 transition-opacity" data-target="about">ABOUT</button>
-            <button onclick="switchView('skills')" class="nav-btn hover-underline-animation opacity-60 hover:opacity-100 transition-opacity" data-target="skills">SKILLS</button>
-            <button onclick="switchView('projects')" class="nav-btn hover-underline-animation opacity-60 hover:opacity-100 transition-opacity" data-target="projects">PROJECTS</button>
-            <button onclick="switchView('contact')" class="nav-btn hover-underline-animation opacity-60 hover:opacity-100 transition-opacity" data-target="contact">CONTACT</button>
-        </nav>
+        <!-- Left Section: Hamburger Menu + Title -->
+        <div class="flex items-center space-x-2 sm:space-x-6 z-10">
+            <button onclick="toggleNavSidebar()" class="p-2 hover:scale-110 active:scale-90 transition-transform duration-300 focus:outline-none flex items-center gap-1 sm:gap-2 group" aria-label="Toggle Navigation">
+                <i data-lucide="menu" class="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-180 transition-transform duration-500"></i>
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider hidden sm:inline group-hover:underline" data-i18n="nav">NAVIGASI</span>
+            </button>
 
-        <!-- Mobile Menu Trigger Button -->
-        <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-editorial-dark focus:outline-none" aria-label="Toggle Navigation Menu">
-            <i data-lucide="menu" class="w-6 h-6"></i>
-        </button>
-
-        <!-- Center Brand Title -->
-        <div class="text-center cursor-pointer" onclick="switchView('hero')">
-            <h1 class="font-display font-black text-2xl sm:text-3xl tracking-tighter uppercase select-none">
-                PORTOFOLIO
-            </h1>
+            <div class="cursor-pointer" onclick="switchView('hero')">
+                <h1 class="font-display font-black text-xs sm:text-2xl tracking-tight uppercase select-none truncate max-w-[95px] sm:max-w-none hover:scale-105 transition-transform" data-i18n="portofolio_title">
+                    PORTOFOLIO
+                </h1>
+            </div>
         </div>
 
-        <!-- Right Header Action Icons (Lucide Icons Only) -->
-        <div class="flex items-center space-x-5 sm:space-x-6">
-            <button onclick="openActionModal('search')" class="p-1 hover:scale-110 transition-transform focus:outline-none" title="Search">
-                <i data-lucide="search" class="w-5 h-5"></i>
+        <!-- Center Brand: FMU -->
+        <div class="cursor-pointer absolute left-1/2 transform -translate-x-1/2 z-0" onclick="switchView('hero')" title="Firman M. Ubaidah">
+            <span class="font-blackletter text-xl sm:text-4xl tracking-wider select-none hover:scale-110 hover:rotate-3 transition-transform duration-300 inline-block">
+                FMU
+            </span>
+        </div>
+
+        <!-- Right Header Action Icons -->
+        <div class="flex items-center space-x-1 sm:space-x-4 z-10">
+            <button onclick="switchView('search')" class="p-1.5 hover:scale-125 active:scale-90 transition-transform duration-300 focus:outline-none" title="Search">
+                <i data-lucide="search" class="w-4 h-4 sm:w-5 sm:h-5"></i>
             </button>
-            <button onclick="switchView('about')" class="p-1 hover:scale-110 transition-transform focus:outline-none" title="Profile">
-                <i data-lucide="user" class="w-5 h-5"></i>
+            <button onclick="switchView('about')" class="p-1.5 hover:scale-125 active:scale-90 transition-transform duration-300 focus:outline-none" title="Profile">
+                <i data-lucide="user" class="w-4 h-4 sm:w-5 sm:h-5"></i>
             </button>
-            <button onclick="openActionModal('wishlist')" class="p-1 hover:scale-110 transition-transform focus:outline-none relative" title="Saved Works">
-                <i data-lucide="heart" class="w-5 h-5"></i>
-                <span id="wishlist-count" class="absolute -top-1 -right-1 bg-editorial-dark text-white text-[9px] w-3.5 h-3.5 rounded-full flex items-center justify-center font-bold">0</span>
+            <button onclick="switchView('projects')" class="p-1.5 hover:scale-125 active:scale-90 transition-transform duration-300 focus:outline-none" title="Projects">
+                <i data-lucide="briefcase" class="w-4 h-4 sm:w-5 sm:h-5"></i>
             </button>
-            <button onclick="switchView('contact')" class="p-1 hover:scale-110 transition-transform focus:outline-none" title="Mail">
-                <i data-lucide="mail" class="w-5 h-5"></i>
+            <button onclick="switchView('music')" class="p-1.5 hover:scale-125 active:scale-90 transition-transform duration-300 focus:outline-none" title="Music Playlist">
+                <i data-lucide="headphones" class="w-4 h-4 sm:w-5 sm:h-5"></i>
             </button>
-            <button onclick="switchView('projects')" class="p-1 hover:scale-110 transition-transform focus:outline-none hidden sm:block" title="Briefcase">
-                <i data-lucide="briefcase" class="w-5 h-5"></i>
+            <button onclick="switchView('gallery')" class="p-1.5 hover:scale-125 active:scale-90 transition-transform duration-300 focus:outline-none" title="Visual Gallery">
+                <i data-lucide="image" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+            </button>
+            <button onclick="switchView('wishlist')" class="p-1.5 hover:scale-125 active:scale-90 transition-transform duration-300 focus:outline-none relative" title="Saved Works">
+                <i data-lucide="heart" class="w-4 h-4 sm:w-5 sm:h-5 text-red-500"></i>
+                <span id="wishlist-count" class="absolute -top-1 -right-1 bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg text-[8px] sm:text-[9px] w-3.5 h-3.5 rounded-full flex items-center justify-center font-bold animate-pulse">0</span>
+            </button>
+            <button onclick="switchView('contact')" class="p-1.5 hover:scale-125 active:scale-90 transition-transform duration-300 focus:outline-none" title="Mail">
+                <i data-lucide="mail" class="w-4 h-4 sm:w-5 sm:h-5"></i>
             </button>
         </div>
     </header>
 
-    <!-- Mobile Navigation Drawer -->
-    <div id="mobile-menu" class="fixed inset-0 z-50 bg-editorial-bg flex flex-col justify-between p-8 transform translate-x-full transition-transform duration-500 ease-in-out md:hidden">
-        <div class="flex justify-between items-center border-b border-editorial-dark/20 pb-6">
-            <span class="font-display font-black text-xl tracking-tighter">NAVIGATION</span>
-            <button onclick="toggleMobileMenu()" class="p-2"><i data-lucide="x" class="w-7 h-7"></i></button>
+
+    <!-- ==================== SIDEBAR NAVIGATION (DRAWER) ==================== -->
+    <div id="nav-sidebar-backdrop" onclick="toggleNavSidebar()" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-400"></div>
+    
+    <div id="nav-sidebar" class="fixed top-0 left-0 bottom-0 z-50 w-80 sm:w-96 bg-editorial-bg dark:bg-darkmode-bg border-r border-editorial-dark/20 dark:border-darkmode-border flex flex-col justify-between p-8 transform -translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-2xl">
+        <div>
+            <div class="flex justify-between items-center border-b border-editorial-dark/20 dark:border-darkmode-border pb-6 mb-8">
+                <span class="font-display font-black text-lg tracking-tighter" data-i18n="nav">NAVIGASI</span>
+                
+                <div class="flex items-center space-x-2">
+                    <button onclick="toggleDarkMode()" class="p-2 hover:bg-editorial-dark/10 dark:hover:bg-darkmode-surface rounded-full transition-all active:scale-90 hover:rotate-180 duration-500" title="Toggle Theme">
+                        <i id="theme-icon" data-lucide="sun" class="w-5 h-5"></i>
+                    </button>
+                    <button onclick="openLanguageModal()" class="p-2 hover:bg-editorial-dark/10 dark:hover:bg-darkmode-surface rounded-full transition-all active:scale-90 hover:scale-110 duration-300" title="Change Language">
+                        <i data-lucide="languages" class="w-5 h-5"></i>
+                    </button>
+                    <button onclick="toggleNavSidebar()" class="p-2 hover:bg-editorial-dark/10 dark:hover:bg-darkmode-surface rounded-full transition-all active:scale-90 hover:rotate-90 duration-300" aria-label="Close">
+                        <i data-lucide="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex flex-col space-y-4 text-base sm:text-lg font-display font-extrabold uppercase tracking-widest overflow-y-auto max-h-[55vh] no-scrollbar">
+                <button onclick="switchView('hero'); toggleNavSidebar();" class="text-left hover:text-editorial-muted dark:hover:text-darkmode-muted flex items-center justify-between group py-1.5 transition-all active:translate-x-3 hover:translate-x-2">
+                    <span data-i18n="home">HOME</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                </button>
+                <button onclick="switchView('about'); toggleNavSidebar();" class="text-left hover:text-editorial-muted dark:hover:text-darkmode-muted flex items-center justify-between group py-1.5 transition-all active:translate-x-3 hover:translate-x-2">
+                    <span data-i18n="about">ABOUT</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                </button>
+                <button onclick="switchView('skills'); toggleNavSidebar();" class="text-left hover:text-editorial-muted dark:hover:text-darkmode-muted flex items-center justify-between group py-1.5 transition-all active:translate-x-3 hover:translate-x-2">
+                    <span data-i18n="skills">SKILLS</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                </button>
+                <button onclick="switchView('projects'); toggleNavSidebar();" class="text-left hover:text-editorial-muted dark:hover:text-darkmode-muted flex items-center justify-between group py-1.5 transition-all active:translate-x-3 hover:translate-x-2">
+                    <span data-i18n="projects">PROJECTS</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                </button>
+                <button onclick="switchView('music'); toggleNavSidebar();" class="text-left hover:text-editorial-muted dark:hover:text-darkmode-muted flex items-center justify-between group py-1.5 transition-all active:translate-x-3 hover:translate-x-2">
+                    <span data-i18n="music_page">MUSIC PLAYLIST</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                </button>
+                <button onclick="switchView('gallery'); toggleNavSidebar();" class="text-left hover:text-editorial-muted dark:hover:text-darkmode-muted flex items-center justify-between group py-1.5 transition-all active:translate-x-3 hover:translate-x-2">
+                    <span data-i18n="gallery_page">VISUAL GALLERY</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                </button>
+                <button onclick="switchView('experience'); toggleNavSidebar();" class="text-left hover:text-editorial-muted dark:hover:text-darkmode-muted flex items-center justify-between group py-1.5 transition-all active:translate-x-3 hover:translate-x-2">
+                    <span data-i18n="experience">EXPERIENCE</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                </button>
+                <button onclick="switchView('certificates'); toggleNavSidebar();" class="text-left hover:text-editorial-muted dark:hover:text-darkmode-muted flex items-center justify-between group py-1.5 transition-all active:translate-x-3 hover:translate-x-2">
+                    <span data-i18n="certificates">CERTIFICATES</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                </button>
+                <button onclick="switchView('contact'); toggleNavSidebar();" class="text-left hover:text-editorial-muted dark:hover:text-darkmode-muted flex items-center justify-between group py-1.5 transition-all active:translate-x-3 hover:translate-x-2">
+                    <span data-i18n="contact">CONTACT</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                </button>
+            </div>
         </div>
-        <div class="flex flex-col space-y-6 my-auto text-2xl font-display font-extrabold uppercase tracking-widest">
-            <button onclick="switchView('hero'); toggleMobileMenu();" class="text-left hover:text-editorial-muted">HOME</button>
-            <button onclick="switchView('about'); toggleMobileMenu();" class="text-left hover:text-editorial-muted">ABOUT</button>
-            <button onclick="switchView('skills'); toggleMobileMenu();" class="text-left hover:text-editorial-muted">SKILLS</button>
-            <button onclick="switchView('projects'); toggleMobileMenu();" class="text-left hover:text-editorial-muted">PROJECTS</button>
-            <button onclick="switchView('contact'); toggleMobileMenu();" class="text-left hover:text-editorial-muted">CONTACT</button>
-        </div>
-        <div class="border-t border-editorial-dark/20 pt-6 text-xs uppercase tracking-widest text-editorial-muted flex justify-between">
-            <span>Yogyakarta, ID</span>
-            <span>Edition 2026</span>
+
+        <!-- Owner Sign-In Bottom Bar -->
+        <div class="border-t border-editorial-dark/20 dark:border-darkmode-border pt-5 flex items-center justify-between">
+            <div id="owner-status-display" class="flex items-center space-x-2">
+                <div class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></div>
+                <span class="text-[10px] font-bold uppercase tracking-widest text-editorial-muted dark:text-darkmode-muted">GUEST MODE</span>
+            </div>
+            <button onclick="openOwnerLoginModal()" class="text-[11px] font-bold uppercase tracking-widest px-3.5 py-2 border border-editorial-dark/30 dark:border-darkmode-border hover:bg-editorial-dark hover:text-white dark:hover:bg-darkmode-light dark:hover:text-darkmode-bg transition-all flex items-center gap-1.5 active:scale-95 hover:scale-105 duration-300 shadow-sm">
+                <i data-lucide="shield" class="w-3.5 h-3.5"></i>
+                <span id="owner-btn-text">SIGN IN</span>
+            </button>
         </div>
     </div>
 
 
-    <!-- ==================== MAIN HERO SECTION ==================== -->
-    <main id="hero-section" class="relative min-h-screen w-full flex flex-col justify-center items-center pt-20 overflow-hidden select-none">
-        
-        <!-- Background Layer: GIANT BOLD TEXT "PORTOFOLIO" -->
-        <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10 w-full overflow-hidden">
-            <h1 class="giant-heading select-none text-center transform scale-y-105 sm:scale-y-100">
-                PORTOFOLIO
-            </h1>
-        </div>
-
-        <!-- Foreground Layer: DYNAMIC GREEN SCREEN REMOVAL CANVAS -->
-        <div class="hero-person-container mt-8">
-            <canvas id="hero-person-canvas" class="hero-person-canvas" title="Noel / Creative Developer"></canvas>
-            <!-- Source Image with Green Screen Background -->
-            <img 
-                id="hero-person-src" 
-                src="https://github.com/noelandxyza/portpholio.github.io/raw/refs/heads/main/asset/1793628911401.jpg" 
-                class="hidden"
-                crossorigin="anonymous"
-                alt="Cutout Source"
-            />
-        </div>
-
-        <!-- Left Editorial Detail Text & Action Buttons -->
-        <div class="absolute left-6 sm:left-12 bottom-10 sm:bottom-14 z-30 max-w-xs sm:max-w-sm flex flex-col items-start space-y-4 text-left">
-            <div class="space-y-1">
-                <p class="text-[10px] sm:text-xs font-extrabold uppercase tracking-superwide text-editorial-muted">
-                    CREATIVE DEVELOPER & UI DESIGNER
-                </p>
-                <h2 class="text-sm sm:text-base font-bold uppercase tracking-wider leading-tight text-editorial-dark">
-                    FASHION THAT MOVES WITH YOU.
-                </h2>
-            </div>
-            <div class="flex items-center space-x-4 pt-2">
-                <button onclick="switchView('projects')" class="bg-editorial-dark text-white text-[11px] font-bold uppercase tracking-widest px-6 py-3.5 hover:bg-black transition-all transform hover:-translate-y-0.5 shadow-lg flex items-center gap-2">
-                    EXPLORE WORK
-                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-                </button>
-                <button onclick="switchView('contact')" class="text-[11px] font-bold uppercase tracking-widest hover-underline-animation py-2">
-                    CONTACT ME
+    <!-- ==================== OWNER LOGIN MODAL ==================== -->
+    <div id="owner-login-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-xl opacity-0 pointer-events-none transition-all duration-400">
+        <div class="bg-editorial-bg dark:bg-darkmode-bg border border-editorial-dark/30 dark:border-darkmode-border w-full max-w-md p-8 shadow-2xl transform scale-95 transition-all duration-400 space-y-6">
+            <div class="flex justify-between items-center border-b border-editorial-dark/20 dark:border-darkmode-border pb-4">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="lock" class="w-5 h-5 text-emerald-500 animate-pulse"></i>
+                    <h3 class="font-display font-bold text-lg uppercase tracking-wider">OWNER AUTHENTICATION</h3>
+                </div>
+                <button onclick="closeOwnerLoginModal()" class="p-1.5 hover:bg-editorial-dark/10 dark:hover:bg-darkmode-surface rounded-full transition-transform hover:rotate-90">
+                    <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
             </div>
+
+            <form onsubmit="handleOwnerLoginSubmit(event)" class="space-y-4">
+                <div id="login-error-box" class="hidden p-3 bg-red-500/10 border border-red-500 text-red-500 text-xs font-bold uppercase tracking-wider animate-bounce">
+                    ID atau Password salah! Akses ditolak.
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-widest text-editorial-muted dark:text-darkmode-muted mb-1">OWNER ID (EMAIL)</label>
+                    <input type="email" id="owner-input-id" required placeholder="bogelfirman354@gmail.com" class="w-full bg-editorial-surface dark:bg-darkmode-surface border border-editorial-dark/20 dark:border-darkmode-border px-4 py-3 text-xs focus:outline-none focus:border-editorial-dark dark:focus:border-darkmode-light transition-all">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-widest text-editorial-muted dark:text-darkmode-muted mb-1">PASSWORD</label>
+                    <input type="password" id="owner-input-pw" required placeholder="Masukkan password..." class="w-full bg-editorial-surface dark:bg-darkmode-surface border border-editorial-dark/20 dark:border-darkmode-border px-4 py-3 text-xs focus:outline-none focus:border-editorial-dark dark:focus:border-darkmode-light transition-all">
+                </div>
+                <button type="submit" class="w-full bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg font-bold text-xs uppercase tracking-superwide py-3.5 hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-lg active:scale-95 hover:scale-[1.01]">
+                    <span>VERIFY & SIGN IN</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+            </form>
         </div>
-
-        <!-- Right Editorial Detail Label -->
-        <div class="absolute right-6 sm:right-12 bottom-12 sm:bottom-16 z-30 text-right flex flex-col items-end space-y-1">
-            <span class="text-[10px] sm:text-xs font-bold uppercase tracking-superwide text-editorial-muted block">
-                NEW COLLECTION
-            </span>
-            <span class="font-display font-black text-lg sm:text-2xl tracking-tighter text-editorial-dark block">
-                2026
-            </span>
-            <span class="text-[10px] font-bold uppercase tracking-widest text-editorial-dark/60 block pt-1">
-                BASED IN YOGYAKARTA
-            </span>
-        </div>
-    </main>
+    </div>
 
 
-    <!-- ==================== PAGE MODAL / DRAWER SYSTEM ==================== -->
-    <div id="modal-wrapper" class="fixed inset-0 z-50 pointer-events-none opacity-0 transition-opacity duration-300">
-        
-        <!-- Backdrop Dim Overlay -->
-        <div id="modal-backdrop" onclick="closeModal()" class="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300 opacity-0 cursor-pointer"></div>
-
-        <!-- Modal Container -->
-        <div id="modal-card" class="absolute inset-x-0 bottom-0 top-12 sm:top-16 bg-editorial-bg border-t border-editorial-dark/20 flex flex-col shadow-2xl transform translate-y-full transition-transform duration-500 ease-out pointer-events-auto overflow-hidden">
+    <!-- ==================== LANGUAGE SELECTOR MODAL ==================== -->
+    <div id="language-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-400">
+        <div class="bg-editorial-bg dark:bg-darkmode-bg border border-editorial-dark/30 dark:border-darkmode-border w-full max-w-md p-6 sm:p-8 shadow-2xl transform scale-95 transition-all duration-400 space-y-6">
+            <div class="flex justify-between items-center border-b border-editorial-dark/20 dark:border-darkmode-border pb-4">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="languages" class="w-5 h-5"></i>
+                    <h3 class="font-display font-bold text-lg uppercase tracking-wider" data-i18n="select_language">PILIH BAHASA</h3>
+                </div>
+                <button onclick="closeLanguageModal()" class="p-1.5 hover:bg-editorial-dark/10 dark:hover:bg-darkmode-surface rounded-full transition-transform hover:rotate-90">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
             
-            <!-- Modal Header -->
-            <div class="px-6 sm:px-12 py-5 border-b border-editorial-dark/15 flex justify-between items-center bg-editorial-bg/90 backdrop-blur shrink-0">
-                <div class="flex items-center space-x-4">
-                    <span id="modal-category-badge" class="text-[10px] font-black uppercase tracking-superwide px-2.5 py-1 bg-editorial-dark text-white">
-                        PAGE
-                    </span>
-                    <h2 id="modal-title" class="font-display font-extrabold text-xl sm:text-2xl tracking-tight uppercase">
-                        SECTION TITLE
+            <input type="text" id="lang-search" onkeyup="filterLanguages()" placeholder="Search language..." class="w-full bg-editorial-surface dark:bg-darkmode-surface border border-editorial-dark/20 dark:border-darkmode-border px-4 py-3 text-sm focus:outline-none focus:border-editorial-dark dark:focus:border-darkmode-light mb-2 transition-all">
+
+            <div id="lang-list" class="space-y-2 max-h-60 overflow-y-auto no-scrollbar">
+                <button onclick="setLanguage('id')" class="w-full text-left px-4 py-3 hover:bg-editorial-dark hover:text-white dark:hover:bg-darkmode-light dark:hover:text-darkmode-bg font-bold text-sm uppercase transition-all flex justify-between items-center active:scale-95">
+                    <span>Bahasa Indonesia</span> <span class="text-xs opacity-60">ID</span>
+                </button>
+                <button onclick="setLanguage('en')" class="w-full text-left px-4 py-3 hover:bg-editorial-dark hover:text-white dark:hover:bg-darkmode-light dark:hover:text-darkmode-bg font-bold text-sm uppercase transition-all flex justify-between items-center active:scale-95">
+                    <span>English</span> <span class="text-xs opacity-60">EN</span>
+                </button>
+                <button onclick="setLanguage('ko')" class="w-full text-left px-4 py-3 hover:bg-editorial-dark hover:text-white dark:hover:bg-darkmode-light dark:hover:text-darkmode-bg font-bold text-sm uppercase transition-all flex justify-between items-center active:scale-95">
+                    <span>한국어 (Korea)</span> <span class="text-xs opacity-60">KO</span>
+                </button>
+                <button onclick="setLanguage('ja')" class="w-full text-left px-4 py-3 hover:bg-editorial-dark hover:text-white dark:hover:bg-darkmode-light dark:hover:text-darkmode-bg font-bold text-sm uppercase transition-all flex justify-between items-center active:scale-95">
+                    <span>日本語 (Jepang)</span> <span class="text-xs opacity-60">JA</span>
+                </button>
+                <button onclick="setLanguage('zh')" class="w-full text-left px-4 py-3 hover:bg-editorial-dark hover:text-white dark:hover:bg-darkmode-light dark:hover:text-darkmode-bg font-bold text-sm uppercase transition-all flex justify-between items-center active:scale-95">
+                    <span>中文 (China)</span> <span class="text-xs opacity-60">ZH</span>
+                </button>
+                <button onclick="setLanguage('ru')" class="w-full text-left px-4 py-3 hover:bg-editorial-dark hover:text-white dark:hover:bg-darkmode-light dark:hover:text-darkmode-bg font-bold text-sm uppercase transition-all flex justify-between items-center active:scale-95">
+                    <span>Русский (Rusia)</span> <span class="text-xs opacity-60">RU</span>
+                </button>
+                <button onclick="setLanguage('jv')" class="w-full text-left px-4 py-3 hover:bg-editorial-dark hover:text-white dark:hover:bg-darkmode-light dark:hover:text-darkmode-bg font-bold text-sm uppercase transition-all flex justify-between items-center active:scale-95">
+                    <span>Aksara Jawa (Basa Jawi)</span> <span class="text-xs opacity-60">JV</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ==================== IMAGE LIGHTBOX MODAL ==================== -->
+    <div id="lightbox-modal" onclick="closeLightbox()" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-2xl flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-400">
+        <div class="relative max-w-5xl max-h-[90vh] overflow-hidden transform scale-95 transition-transform duration-400" onclick="event.stopPropagation()">
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 z-10 p-3 bg-black/70 text-white rounded-full hover:bg-black transition-all hover:rotate-90">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <img id="lightbox-img" src="" alt="Enlarged View" class="w-full max-h-[85vh] object-contain shadow-2xl rounded-lg">
+            <p id="lightbox-caption" class="text-center text-white text-xs uppercase tracking-widest mt-4 font-bold"></p>
+        </div>
+    </div>
+
+
+    <!-- ==================== MAIN PAGE CONTAINER ==================== -->
+    <div id="page-container" class="w-full min-h-screen flex flex-col pt-20">
+        
+        <!-- 1. HOME VIEW (UNCHANGED ANIMATION BASE) -->
+        <main id="view-hero" class="app-view relative min-h-[85vh] w-full flex flex-col justify-center items-center px-4 overflow-hidden select-none animate-fade-in">
+            
+            <!-- Background Giant Typography Heading -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10 w-full overflow-hidden px-2">
+                <h1 id="hero-heading-text" class="giant-heading select-none text-center transform scale-y-105 tracking-tighter opacity-95 transition-all duration-300" data-i18n="hero_big_title">
+                    PORTOFOLIO
+                </h1>
+            </div>
+
+            <!-- Left Detail Text & Action Buttons -->
+            <div class="absolute left-4 sm:left-12 bottom-20 sm:bottom-28 z-30 max-w-[260px] sm:max-w-sm flex flex-col items-start space-y-3 sm:space-y-4 text-left">
+                <div class="space-y-1">
+                    <p class="text-[9px] sm:text-xs font-extrabold uppercase tracking-superwide text-editorial-muted dark:text-darkmode-muted" data-i18n="subtitle">
+                        CREATIVE DEVELOPER & UI DESIGNER
+                    </p>
+                    <h2 class="text-xs sm:text-base font-bold uppercase tracking-wider leading-tight" data-i18n="tagline">
+                        DIGITAL EXPERIENCES THAT MOVE WITH YOU.
                     </h2>
                 </div>
-                <button onclick="closeModal()" class="p-2 hover:rotate-90 transition-transform duration-300 rounded-full hover:bg-editorial-dark/10" aria-label="Close View">
+                <div class="flex items-center space-x-3 sm:space-x-4 pt-1">
+                    <button onclick="switchView('projects')" class="bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg text-[10px] sm:text-[11px] font-bold uppercase tracking-widest px-4 sm:px-6 py-3 sm:py-3.5 hover:scale-105 active:scale-95 transition-all shadow-lg flex items-center gap-2">
+                        <span data-i18n="explore_work">EXPLORE WORK</span>
+                        <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                    </button>
+                    <button onclick="switchView('contact')" class="text-[10px] sm:text-[11px] font-bold uppercase tracking-widest hover-underline-animation py-2" data-i18n="contact_me">
+                        CONTACT ME
+                    </button>
+                </div>
+            </div>
+
+            <!-- MINI MUSIC PLAYER AT BOTTOM LEFT -->
+            <div class="absolute left-4 sm:left-12 bottom-4 z-30 bg-editorial-surface/90 dark:bg-darkmode-surface/90 backdrop-blur-md border border-editorial-dark/20 dark:border-darkmode-border p-3 shadow-xl flex items-center gap-3 max-w-[280px] sm:max-w-xs animate-fade-in">
+                <button onclick="togglePlay()" id="home-play-btn" class="p-2.5 bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg rounded-full hover:scale-110 active:scale-95 transition-transform shadow-md">
+                    <i data-lucide="play" class="w-4 h-4"></i>
+                </button>
+                <div class="overflow-hidden cursor-pointer" onclick="switchView('music')" title="Open Music Page">
+                    <span class="text-[9px] font-bold uppercase tracking-widest text-editorial-muted dark:text-darkmode-muted block" data-i18n="now_playing">NOW PLAYING</span>
+                    <p id="home-track-title" class="text-xs font-bold uppercase truncate max-w-[160px]">rmbr me</p>
+                </div>
+                <button onclick="switchView('music')" class="ml-auto p-1.5 hover:bg-editorial-dark/10 dark:hover:bg-darkmode-surface rounded" title="Open Full Playlist">
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                </button>
+            </div>
+
+            <!-- Right Detail Label -->
+            <div class="absolute right-4 sm:right-12 bottom-8 sm:bottom-16 z-30 text-right flex flex-col items-end space-y-1">
+                <span class="text-[9px] sm:text-xs font-bold uppercase tracking-superwide text-editorial-muted dark:text-darkmode-muted block" data-i18n="edition">
+                    EDITION
+                </span>
+                <span class="font-display font-black text-base sm:text-2xl tracking-tighter block">
+                    2026
+                </span>
+                <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest opacity-60 block pt-1" data-i18n="location">
+                    BASED IN YOGYAKARTA
+                </span>
+            </div>
+        </main>
+
+
+        <!-- 2. MUSIC PLAYLIST PAGE VIEW (REDESIGNED LUXURY PLAYER & ANIMATED VIBE) -->
+        <section id="view-music" class="app-view hidden w-full min-h-[85vh] px-6 sm:px-12 py-12 max-w-5xl mx-auto space-y-10 animate-fade-in">
+            <div class="flex justify-between items-center border-b border-editorial-dark/15 dark:border-darkmode-border pb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-[10px] font-black uppercase tracking-superwide px-2.5 py-1 bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg">PAGE</span>
+                    <h2 class="font-display font-extrabold text-xl sm:text-2xl tracking-tight uppercase" data-i18n="music_page">MUSIC PLAYLIST</h2>
+                </div>
+                <button onclick="switchView('hero')" class="p-2 hover:rotate-90 transition-transform duration-300 rounded-full hover:bg-editorial-dark/10 dark:hover:bg-darkmode-surface active:scale-90">
                     <i data-lucide="x" class="w-6 h-6"></i>
                 </button>
             </div>
 
-            <!-- Scrollable Modal Content Container -->
-            <div class="flex-1 overflow-y-auto no-scrollbar p-6 sm:p-12 md:p-16">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-superwide text-editorial-muted dark:text-darkmode-muted block" data-i18n="curated_universe">// AUDIO ROTATION & IMMERSIVE SOUNDS</span>
+                    <h3 class="font-display font-black text-3xl sm:text-5xl uppercase tracking-tighter animate-quantum-float" data-i18n="featured_playlist_title">
+                        SOUNDTRACK ROTATION
+                    </h3>
+                </div>
                 
-                <!-- 1. ABOUT PAGE CONTENT -->
-                <section id="content-about" class="modal-section hidden max-w-5xl mx-auto space-y-12">
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-                        <div class="md:col-span-5 space-y-6">
-                            <span class="text-xs font-bold tracking-superwide text-editorial-muted uppercase block">// EDITORIAL PROFILE</span>
-                            <h3 class="font-display font-black text-3xl sm:text-5xl uppercase tracking-tighter leading-none">
-                                DIGITAL CRAFTSMANSHIP & DESIGN.
-                            </h3>
-                            <div class="w-16 h-1 bg-editorial-dark"></div>
-                            <p class="text-sm sm:text-base text-editorial-dark/80 leading-relaxed font-normal">
-                                I am <strong class="text-editorial-dark font-bold">Noel</strong>, a Creative Developer and UI Designer based in Yogyakarta, Indonesia. I specialize in turning complex digital ideas into fluid, minimalist web applications with high visual impact.
-                            </p>
-                        </div>
-                        <div class="md:col-span-7 space-y-6 bg-editorial-surface p-8 border border-editorial-border">
-                            <h4 class="font-display font-bold text-lg uppercase tracking-wider">PHILOSOPHY & VISION</h4>
-                            <p class="text-sm text-editorial-dark/80 leading-relaxed">
-                                Inspired by luxury fashion visual typography and brutalist minimalism, every pixel is curated to move with elegance. By combining responsive animation engineering with bulletproof code, I build interfaces that feel premium on desktop and mobile alike.
-                            </p>
-                            <div class="grid grid-cols-2 gap-6 pt-4 border-t border-editorial-dark/10">
-                                <div>
-                                    <span class="font-display font-black text-3xl sm:text-4xl block">05+</span>
-                                    <span class="text-xs uppercase font-bold tracking-wider text-editorial-muted">Years Experience</span>
-                                </div>
-                                <div>
-                                    <span class="font-display font-black text-3xl sm:text-4xl block">40+</span>
-                                    <span class="text-xs uppercase font-bold tracking-wider text-editorial-muted">Curated Projects</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Highlight Features -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6">
-                        <div class="p-6 border border-editorial-dark/20 space-y-3 hover:bg-editorial-dark hover:text-white transition-colors duration-300 group">
-                            <i data-lucide="layout" class="w-6 h-6 group-hover:text-white"></i>
-                            <h5 class="font-bold text-sm uppercase tracking-wider">UI Architecture</h5>
-                            <p class="text-xs opacity-80 leading-relaxed">Designing clean, scalable component design systems for web and mobile.</p>
-                        </div>
-                        <div class="p-6 border border-editorial-dark/20 space-y-3 hover:bg-editorial-dark hover:text-white transition-colors duration-300 group">
-                            <i data-lucide="code" class="w-6 h-6 group-hover:text-white"></i>
-                            <h5 class="font-bold text-sm uppercase tracking-wider">Front-End Dev</h5>
-                            <p class="text-xs opacity-80 leading-relaxed">Building lightning-fast code with modern JavaScript and HTML5 canvas visuals.</p>
-                        </div>
-                        <div class="p-6 border border-editorial-dark/20 space-y-3 hover:bg-editorial-dark hover:text-white transition-colors duration-300 group">
-                            <i data-lucide="zap" class="w-6 h-6 group-hover:text-white"></i>
-                            <h5 class="font-bold text-sm uppercase tracking-wider">Performance</h5>
-                            <p class="text-xs opacity-80 leading-relaxed">Optimizing assets, layouts, and frame-rate for silky smooth 60fps UX.</p>
-                        </div>
-                    </div>
-                </section>
-
-
-                <!-- 2. SKILLS PAGE CONTENT (RATA KANAN SPECIFICATION) -->
-                <section id="content-skills" class="modal-section hidden max-w-4xl mx-auto space-y-12">
-                    <div class="text-right space-y-3 border-b border-editorial-dark/15 pb-8">
-                        <span class="text-xs font-bold tracking-superwide text-editorial-muted uppercase block">// TECHNICAL PROFICIENCY</span>
-                        <h3 class="font-display font-black text-3xl sm:text-5xl uppercase tracking-tighter">
-                            EXPERTISE & MASTERY
-                        </h3>
-                        <p class="text-xs sm:text-sm text-editorial-dark/70 max-w-lg ml-auto">
-                            Comprehensive overview of front-end tech stacks, layout engineering, and interactive tools. All metrics represent calibrated mastery.
-                        </p>
-                    </div>
-
-                    <!-- Skills List - Completely Right-Aligned ("Rata Kanan") -->
-                    <div class="space-y-8 flex flex-col items-end">
-                        
-                        <!-- Skill Item 1 -->
-                        <div class="w-full max-w-2xl text-right space-y-2">
-                            <div class="flex justify-between items-center text-xs font-bold tracking-widest uppercase">
-                                <span class="text-editorial-muted font-mono">01</span>
-                                <div class="flex items-center gap-3">
-                                    <span class="font-display">HTML5 & MODERN CSS / TAILWIND</span>
-                                    <span class="bg-editorial-dark text-white px-2 py-0.5 text-[10px]">95%</span>
-                                </div>
-                            </div>
-                            <div class="w-full bg-editorial-dark/10 h-2 flex justify-end overflow-hidden">
-                                <div class="skill-bar progress-bar-fill bg-editorial-dark h-full" data-width="95%" style="width: 0%"></div>
-                            </div>
-                        </div>
-
-                        <!-- Skill Item 2 -->
-                        <div class="w-full max-w-2xl text-right space-y-2">
-                            <div class="flex justify-between items-center text-xs font-bold tracking-widest uppercase">
-                                <span class="text-editorial-muted font-mono">02</span>
-                                <div class="flex items-center gap-3">
-                                    <span class="font-display">JAVASCRIPT (ES6+) & FRAMEWORKS</span>
-                                    <span class="bg-editorial-dark text-white px-2 py-0.5 text-[10px]">92%</span>
-                                </div>
-                            </div>
-                            <div class="w-full bg-editorial-dark/10 h-2 flex justify-end overflow-hidden">
-                                <div class="skill-bar progress-bar-fill bg-editorial-dark h-full" data-width="92%" style="width: 0%"></div>
-                            </div>
-                        </div>
-
-                        <!-- Skill Item 3 -->
-                        <div class="w-full max-w-2xl text-right space-y-2">
-                            <div class="flex justify-between items-center text-xs font-bold tracking-widest uppercase">
-                                <span class="text-editorial-muted font-mono">03</span>
-                                <div class="flex items-center gap-3">
-                                    <span class="font-display">INTERACTIVE UI/UX DESIGN</span>
-                                    <span class="bg-editorial-dark text-white px-2 py-0.5 text-[10px]">94%</span>
-                                </div>
-                            </div>
-                            <div class="w-full bg-editorial-dark/10 h-2 flex justify-end overflow-hidden">
-                                <div class="skill-bar progress-bar-fill bg-editorial-dark h-full" data-width="94%" style="width: 0%"></div>
-                            </div>
-                        </div>
-
-                        <!-- Skill Item 4 -->
-                        <div class="w-full max-w-2xl text-right space-y-2">
-                            <div class="flex justify-between items-center text-xs font-bold tracking-widest uppercase">
-                                <span class="text-editorial-muted font-mono">04</span>
-                                <div class="flex items-center gap-3">
-                                    <span class="font-display">WEB ANIMATIONS & CANVAS INTERACTIONS</span>
-                                    <span class="bg-editorial-dark text-white px-2 py-0.5 text-[10px]">88%</span>
-                                </div>
-                            </div>
-                            <div class="w-full bg-editorial-dark/10 h-2 flex justify-end overflow-hidden">
-                                <div class="skill-bar progress-bar-fill bg-editorial-dark h-full" data-width="88%" style="width: 0%"></div>
-                            </div>
-                        </div>
-
-                        <!-- Skill Item 5 -->
-                        <div class="w-full max-w-2xl text-right space-y-2">
-                            <div class="flex justify-between items-center text-xs font-bold tracking-widest uppercase">
-                                <span class="text-editorial-muted font-mono">05</span>
-                                <div class="flex items-center gap-3">
-                                    <span class="font-display">PERFORMANCE & OPTIMIZATION</span>
-                                    <span class="bg-editorial-dark text-white px-2 py-0.5 text-[10px]">85%</span>
-                                </div>
-                            </div>
-                            <div class="w-full bg-editorial-dark/10 h-2 flex justify-end overflow-hidden">
-                                <div class="skill-bar progress-bar-fill bg-editorial-dark h-full" data-width="85%" style="width: 0%"></div>
-                            </div>
-                        </div>
-
-                    </div>
-                </section>
-
-
-                <!-- 3. PROJECTS PAGE CONTENT -->
-                <section id="content-projects" class="modal-section hidden max-w-6xl mx-auto space-y-10">
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 border-b border-editorial-dark/15 pb-6">
-                        <div>
-                            <span class="text-xs font-bold tracking-superwide text-editorial-muted uppercase block">// PORTFOLIO SHOWCASE</span>
-                            <h3 class="font-display font-black text-3xl sm:text-5xl uppercase tracking-tighter">
-                                SELECTED WORKS
-                            </h3>
-                        </div>
-
-                        <!-- Project Category Filter Tags -->
-                        <div class="flex flex-wrap gap-2 text-xs font-bold uppercase tracking-wider">
-                            <button onclick="filterProjects('all')" class="project-filter-btn px-4 py-2 border border-editorial-dark bg-editorial-dark text-white">ALL</button>
-                            <button onclick="filterProjects('web')" class="project-filter-btn px-4 py-2 border border-editorial-dark/20 hover:border-editorial-dark">WEB APPS</button>
-                            <button onclick="filterProjects('ui')" class="project-filter-btn px-4 py-2 border border-editorial-dark/20 hover:border-editorial-dark">EDITORIAL UI</button>
-                        </div>
-                    </div>
-
-                    <!-- Projects Grid Layout -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        
-                        <!-- Project Card 1 -->
-                        <div class="project-card group border border-editorial-dark/20 bg-editorial-surface flex flex-col justify-between overflow-hidden" data-category="ui">
-                            <div class="p-6 space-y-4">
-                                <div class="flex justify-between items-center text-xs font-bold text-editorial-muted">
-                                    <span>2026</span>
-                                    <button onclick="toggleWishlist('Luxury Editorial UI')" class="hover:text-red-600 transition-colors">
-                                        <i data-lucide="heart" class="w-4 h-4"></i>
-                                    </button>
-                                </div>
-                                <h4 class="font-display font-extrabold text-2xl uppercase tracking-tight group-hover:translate-x-1 transition-transform">
-                                    FASHION EDITORIAL CONCEPT
-                                </h4>
-                                <p class="text-xs text-editorial-dark/70 leading-relaxed">
-                                    High-fashion minimalist portfolio theme with custom typography layering and real-time green screen canvas removal.
-                                </p>
-                            </div>
-                            <div class="px-6 py-4 bg-editorial-bg border-t border-editorial-dark/10 flex justify-between items-center text-xs font-bold">
-                                <span class="text-editorial-muted uppercase">HTML / TAILWIND / JS</span>
-                                <a href="https://github.com/noelandxyza/portpholio.github.io" target="_blank" class="flex items-center gap-1 hover:underline">
-                                    VIEW LINK <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Project Card 2 -->
-                        <div class="project-card group border border-editorial-dark/20 bg-editorial-surface flex flex-col justify-between overflow-hidden" data-category="web">
-                            <div class="p-6 space-y-4">
-                                <div class="flex justify-between items-center text-xs font-bold text-editorial-muted">
-                                    <span>2025</span>
-                                    <button onclick="toggleWishlist('Yogyakarta Digital Lab')" class="hover:text-red-600 transition-colors">
-                                        <i data-lucide="heart" class="w-4 h-4"></i>
-                                    </button>
-                                </div>
-                                <h4 class="font-display font-extrabold text-2xl uppercase tracking-tight group-hover:translate-x-1 transition-transform">
-                                    YOGYAKARTA CREATIVE LAB
-                                </h4>
-                                <p class="text-xs text-editorial-dark/70 leading-relaxed">
-                                    Interactive web platform showcasing visual arts, local culture, and dynamic canvas web applications.
-                                </p>
-                            </div>
-                            <div class="px-6 py-4 bg-editorial-bg border-t border-editorial-dark/10 flex justify-between items-center text-xs font-bold">
-                                <span class="text-editorial-muted uppercase">JAVASCRIPT / CANVAS</span>
-                                <a href="#" onclick="copyText('https://github.com/noelandxyza')" class="flex items-center gap-1 hover:underline">
-                                    COPY LINK <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Project Card 3 -->
-                        <div class="project-card group border border-editorial-dark/20 bg-editorial-surface flex flex-col justify-between overflow-hidden" data-category="web">
-                            <div class="p-6 space-y-4">
-                                <div class="flex justify-between items-center text-xs font-bold text-editorial-muted">
-                                    <span>2025</span>
-                                    <button onclick="toggleWishlist('Monochrome Interactive')" class="hover:text-red-600 transition-colors">
-                                        <i data-lucide="heart" class="w-4 h-4"></i>
-                                    </button>
-                                </div>
-                                <h4 class="font-display font-extrabold text-2xl uppercase tracking-tight group-hover:translate-x-1 transition-transform">
-                                    MONOCHROME INTERACTIVE
-                                </h4>
-                                <p class="text-xs text-editorial-dark/70 leading-relaxed">
-                                    Dark-mode minimalist web design system engineered for high performance and smooth gesture inputs.
-                                </p>
-                            </div>
-                            <div class="px-6 py-4 bg-editorial-bg border-t border-editorial-dark/10 flex justify-between items-center text-xs font-bold">
-                                <span class="text-editorial-muted uppercase">WEB GL / THREE.JS</span>
-                                <a href="https://github.com/noelandxyza" target="_blank" class="flex items-center gap-1 hover:underline">
-                                    EXPLORE <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
-                </section>
-
-
-                <!-- 4. CONTACT PAGE CONTENT -->
-                <section id="content-contact" class="modal-section hidden max-w-5xl mx-auto space-y-12">
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
-                        
-                        <!-- Contact Info Left Column -->
-                        <div class="md:col-span-5 space-y-8">
-                            <div class="space-y-3">
-                                <span class="text-xs font-bold tracking-superwide text-editorial-muted uppercase block">// DIRECT INQUIRIES</span>
-                                <h3 class="font-display font-black text-3xl sm:text-5xl uppercase tracking-tighter">
-                                    LET'S TALK WORK.
-                                </h3>
-                                <p class="text-xs sm:text-sm text-editorial-dark/70 leading-relaxed">
-                                    Available for freelance development, full-time engineering roles, and custom UI/UX design collaborations.
-                                </p>
-                            </div>
-
-                            <!-- Direct Action Channels -->
-                            <div class="space-y-4">
-                                
-                                <!-- WhatsApp Box -->
-                                <a href="https://wa.me/62895328768282" target="_blank" class="flex items-center justify-between p-4 border border-editorial-dark/20 hover:bg-emerald-600 hover:text-white transition-all group">
-                                    <div class="flex items-center space-x-4">
-                                        <div class="p-2.5 bg-editorial-dark group-hover:bg-white group-hover:text-emerald-600 text-white">
-                                            <i data-lucide="message-square" class="w-5 h-5"></i>
-                                        </div>
-                                        <div>
-                                            <span class="text-[10px] uppercase font-bold tracking-widest opacity-60 block">WHATSAPP</span>
-                                            <span class="font-display font-bold text-sm">0895-3287-68282</span>
-                                        </div>
-                                    </div>
-                                    <i data-lucide="arrow-up-right" class="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
-                                </a>
-
-                                <!-- Gmail Box -->
-                                <a href="mailto:noelandxyza@gmail.com" class="flex items-center justify-between p-4 border border-editorial-dark/20 hover:bg-editorial-dark hover:text-white transition-all group">
-                                    <div class="flex items-center space-x-4">
-                                        <div class="p-2.5 bg-editorial-dark group-hover:bg-white group-hover:text-editorial-dark text-white">
-                                            <i data-lucide="mail" class="w-5 h-5"></i>
-                                        </div>
-                                        <div>
-                                            <span class="text-[10px] uppercase font-bold tracking-widest opacity-60 block">GMAIL EMAIL</span>
-                                            <span class="font-display font-bold text-sm">noelandxyza@gmail.com</span>
-                                        </div>
-                                    </div>
-                                    <i data-lucide="arrow-up-right" class="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
-                                </a>
-
-                                <!-- Location Tag -->
-                                <div class="flex items-center space-x-3 text-xs font-bold uppercase tracking-widest text-editorial-muted pt-2">
-                                    <i data-lucide="map-pin" class="w-4 h-4 text-editorial-dark"></i>
-                                    <span>Yogyakarta, Special Region, Indonesia</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Interactive Contact Form Right Column -->
-                        <div class="md:col-span-7 bg-editorial-surface p-8 border border-editorial-border space-y-6">
-                            <h4 class="font-display font-bold text-xl uppercase tracking-wider">SEND A MESSAGE</h4>
-                            
-                            <form onsubmit="handleFormSubmit(event)" class="space-y-5">
-                                <div>
-                                    <label class="block text-[11px] font-bold uppercase tracking-widest text-editorial-muted mb-2">YOUR NAME</label>
-                                    <input type="text" required placeholder="Alex Morgan" class="w-full bg-editorial-bg border border-editorial-dark/20 px-4 py-3 text-sm focus:outline-none focus:border-editorial-dark">
-                                </div>
-                                <div>
-                                    <label class="block text-[11px] font-bold uppercase tracking-widest text-editorial-muted mb-2">YOUR EMAIL</label>
-                                    <input type="email" required placeholder="alex@domain.com" class="w-full bg-editorial-bg border border-editorial-dark/20 px-4 py-3 text-sm focus:outline-none focus:border-editorial-dark">
-                                </div>
-                                <div>
-                                    <label class="block text-[11px] font-bold uppercase tracking-widest text-editorial-muted mb-2">PROJECT BRIEF / MESSAGE</label>
-                                    <textarea rows="4" required placeholder="Tell me about your project goals and timeline..." class="w-full bg-editorial-bg border border-editorial-dark/20 px-4 py-3 text-sm focus:outline-none focus:border-editorial-dark"></textarea>
-                                </div>
-                                <button type="submit" class="w-full bg-editorial-dark text-white font-bold text-xs uppercase tracking-superwide py-4 hover:bg-black transition-colors flex items-center justify-center gap-2">
-                                    TRANSMIT MESSAGE
-                                    <i data-lucide="mail" class="w-4 h-4"></i>
-                                </button>
-                            </form>
-                        </div>
-
-                    </div>
-                </section>
-
-
-                <!-- 5. SEARCH MODAL OVERLAY -->
-                <section id="content-search" class="modal-section hidden max-w-3xl mx-auto space-y-8">
-                    <div class="space-y-4">
-                        <span class="text-xs font-bold tracking-superwide text-editorial-muted uppercase block">// QUICK PORTFOLIO SEARCH</span>
-                        <div class="relative">
-                            <input id="search-input" type="text" onkeyup="performSearch()" placeholder="Type to search skills, projects, info..." class="w-full bg-editorial-surface border-2 border-editorial-dark px-6 py-4 text-lg font-bold placeholder:text-editorial-dark/40 focus:outline-none">
-                            <i data-lucide="search" class="w-6 h-6 absolute right-6 top-4 text-editorial-dark/50"></i>
-                        </div>
-                    </div>
-
-                    <div id="search-results" class="space-y-3">
-                        <div class="p-4 border border-editorial-dark/10 cursor-pointer hover:bg-editorial-surface" onclick="switchView('skills')">
-                            <span class="text-[10px] font-bold uppercase tracking-wider text-editorial-muted">SKILL</span>
-                            <h5 class="font-bold text-sm">HTML5, CSS3, Tailwind CSS & JavaScript</h5>
-                        </div>
-                        <div class="p-4 border border-editorial-dark/10 cursor-pointer hover:bg-editorial-surface" onclick="switchView('contact')">
-                            <span class="text-[10px] font-bold uppercase tracking-wider text-editorial-muted">CONTACT</span>
-                            <h5 class="font-bold text-sm">WhatsApp: 0895-3287-68282 | Email: noelandxyza@gmail.com</h5>
-                        </div>
-                    </div>
-                </section>
-
-
-                <!-- 6. WISHLIST MODAL OVERLAY -->
-                <section id="content-wishlist" class="modal-section hidden max-w-3xl mx-auto space-y-8">
-                    <div class="space-y-2 border-b border-editorial-dark/15 pb-6">
-                        <span class="text-xs font-bold tracking-superwide text-editorial-muted uppercase block">// SAVED ITEMS</span>
-                        <h3 class="font-display font-black text-3xl uppercase tracking-tighter">SAVED PROJECTS SHOWCASE</h3>
-                    </div>
-
-                    <div id="wishlist-container" class="space-y-4">
-                        <p id="empty-wishlist-msg" class="text-xs font-bold uppercase tracking-widest text-editorial-muted">No saved items yet. Click the heart icon on any project card to save it here.</p>
-                    </div>
-                </section>
-
+                <div class="flex flex-wrap items-center gap-3">
+                    <label class="bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg text-xs font-bold uppercase tracking-widest px-5 py-3 hover:opacity-90 transition-all cursor-pointer flex items-center gap-2 shadow-xl active:scale-95 hover:scale-105 duration-300">
+                        <i data-lucide="upload" class="w-4 h-4"></i>
+                        <span data-i18n="upload_music">UPLOAD LAGU</span>
+                        <input type="file" id="local-audio-upload" accept="audio/*" class="hidden" onchange="handleAudioUpload(event)">
+                    </label>
+                    <button onclick="clearAllMusic()" id="clear-all-music-btn" class="hidden text-xs font-bold uppercase tracking-widest px-5 py-3 bg-red-600 text-white hover:bg-red-700 transition-all items-center gap-2 shadow-xl active:scale-95 hover:scale-105 duration-300">
+                        <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        <span>HAPUS SEMUA MUSIC</span>
+                    </button>
+                </div>
             </div>
-        </div>
+
+            <!-- Music Search Bar -->
+            <div class="relative transform transition-all duration-300 hover:scale-[1.01]">
+                <input type="text" id="music-search-input" onkeyup="filterOrFetchMusic()" placeholder="Cari musik lokal atau dari internet (ketik judul lagu)..." class="w-full bg-editorial-surface dark:bg-darkmode-surface border border-editorial-dark/20 dark:border-darkmode-border px-5 py-3.5 text-sm focus:outline-none focus:border-editorial-dark transition-all shadow-inner">
+                <i data-lucide="search" class="w-4 h-4 absolute right-4 top-4 opacity-50"></i>
+            </div>
+
+            <!-- Redesigned Luxury Vinyl Player Widget -->
+            <div class="bg-editorial-surface dark:bg-darkmode-surface border border-editorial-dark dark:border-darkmode-border p-8 sm:p-12 shadow-2xl space-y-8 relative overflow-hidden group">
+                <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-editorial-dark/5 dark:bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
+                    <div class="flex items-center space-x-6 w-full lg:w-auto">
+                        <!-- Animated Vinyl Disc Box -->
+                        <div id="player-disc" class="w-24 h-24 sm:w-28 sm:h-28 bg-gradient-to-tr from-editorial-dark to-editorial-muted text-white dark:from-darkmode-light dark:to-darkmode-muted dark:text-darkmode-bg rounded-full flex items-center justify-center shrink-0 shadow-2xl relative transition-all border-4 border-editorial-bg dark:border-darkmode-bg">
+                            <div class="w-8 h-8 rounded-full bg-editorial-bg dark:bg-darkmode-bg border-2 border-editorial-dark flex items-center justify-center">
+                                <div class="w-2 h-2 rounded-full bg-editorial-dark dark:bg-darkmode-light"></div>
+                            </div>
+                            <div class="absolute inset-0 rounded-full border border-white/20 animate-spin" style="animation-duration: 8s;"></div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-editorial-muted dark:text-darkmode-muted" data-i18n="now_playing">NOW PLAYING</span>
+                            </div>
+                            <h5 id="current-track-title" class="font-display font-extrabold text-xl sm:text-2xl uppercase tracking-tight">rmbr me</h5>
+                            <p id="current-track-artist" class="text-xs font-bold text-editorial-muted dark:text-darkmode-muted uppercase tracking-wider">pryme!</p>
+                        </div>
+                    </div>
+
+                    <!-- Animated Sound Wave Equalizer -->
+                    <div class="flex items-center gap-1.5 h-10 px-4 py-2 bg-editorial-bg/60 dark:bg-darkmode-bg/60 backdrop-blur-md border border-editorial-dark/10 dark:border-darkmode-border">
+                        <span class="w-1 bg-editorial-dark dark:bg-darkmode-light wave-bar-1"></span>
+                        <span class="w-1 bg-editorial-dark dark:bg-darkmode-light wave-bar-2"></span>
+                        <span class="w-1 bg-editorial-dark dark:bg-darkmode-light wave-bar-3"></span>
+                        <span class="w-1 bg-editorial-dark dark:bg-darkmode-light wave-bar-4"></span>
+                        <span class="w-1 bg-editorial-dark dark:bg-darkmode-light wave-bar-2"></span>
+                    </div>
+
+                    <div class="flex items-center space-x-3 w-full lg:w-auto justify-center">
+                        <button onclick="downloadCurrentTrack()" class="p-3.5 bg-editorial-bg dark:bg-darkmode-bg hover:bg-editorial-dark hover:text-white dark:hover:bg-darkmode-light dark:hover:text-darkmode-bg transition-all border border-editorial-dark/25 dark:border-darkmode-border shadow-md active:scale-90 hover:scale-110" title="Download This MP3">
+                            <i data-lucide="download" class="w-5 h-5"></i>
+                        </button>
+                        <button onclick="toggleLoop()" id="loop-btn" class="p-3.5 bg-editorial-bg dark:bg-darkmode-bg hover:bg-editorial-dark hover:text-white dark:hover:bg-darkmode-light dark:hover:text-darkmode-bg transition-all border border-editorial-dark/20 dark:border-darkmode-border shadow-sm text-editorial-muted active:scale-90 hover:scale-110" title="Toggle Loop Mode">
+                            <i data-lucide="repeat" class="w-5 h-5"></i>
+                        </button>
+                        <button onclick="prevTrack()" class="p-3.5 bg-editorial-bg dark:bg-darkmode-bg hover:bg-editorial-dark hover:text-white dark:hover:bg-darkmode-light dark:hover:text-darkmode-bg transition-all border border-editorial-dark/20 dark:border-darkmode-border shadow-sm active:scale-90 hover:scale-110">
+                            <i data-lucide="skip-back" class="w-5 h-5"></i>
+                        </button>
+                        <button onclick="togglePlay()" id="play-pause-btn" class="p-5 bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg hover:scale-110 active:scale-95 transition-all shadow-2xl rounded-full">
+                            <i data-lucide="play" class="w-6 h-6"></i>
+                        </button>
+                        <button onclick="nextTrack()" class="p-3.5 bg-editorial-bg dark:bg-darkmode-bg hover:bg-editorial-dark hover:text-white dark:hover:bg-darkmode-light dark:hover:text-darkmode-bg transition-all border border-editorial-dark/20 dark:border-darkmode-border shadow-sm active:scale-90 hover:scale-110">
+                            <i data-lucide="skip-forward" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="space-y-1.5 relative z-10 pt-2">
+                    <div class="flex justify-between items-center text-[10px] font-mono text-editorial-muted dark:text-darkmode-muted">
+                        <span id="current-time">0:00</span>
+                        <span id="total-duration">0:00</span>
+                    </div>
+                    <div onclick="seekAudio(event)" class="w-full bg-editorial-dark/10 dark:bg-darkmode-bg h-3 cursor-pointer relative overflow-hidden transition-all hover:h-4 rounded-full">
+                        <div id="audio-progress-bar" class="bg-editorial-dark dark:bg-darkmode-light h-full w-0 transition-all"></div>
+                    </div>
+                </div>
+
+                <!-- Lyrics Panel -->
+                <div class="p-4 bg-editorial-bg dark:bg-darkmode-bg border border-editorial-dark/10 dark:border-darkmode-border text-center space-y-1 relative z-10 rounded-lg">
+                    <span class="text-[9px] font-bold uppercase tracking-superwide text-editorial-muted dark:text-darkmode-muted" data-i18n="lyrics_mode">// LYRICS & VIBE MODE</span>
+                    <p id="track-lyrics" class="text-xs italic font-medium opacity-80">"Listening to immersive developer rotation beats in Yogyakarta..."</p>
+                </div>
+            </div>
+
+            <!-- Playlist Track Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 pb-10" id="playlist-grid"></div>
+        </section>
+
+
+        <!-- 3. VISUAL GALLERY PAGE VIEW (REDESIGNED MASONRY EDITORIAL GALLERY) -->
+        <section id="view-gallery" class="app-view hidden w-full min-h-[85vh] px-6 sm:px-12 py-12 max-w-6xl mx-auto space-y-10 animate-fade-in">
+            <div class="flex justify-between items-center border-b border-editorial-dark/15 dark:border-darkmode-border pb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-[10px] font-black uppercase tracking-superwide px-2.5 py-1 bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg">PAGE</span>
+                    <h2 class="font-display font-extrabold text-xl sm:text-2xl tracking-tight uppercase" data-i18n="gallery_page">VISUAL GALLERY</h2>
+                </div>
+                <button onclick="switchView('hero')" class="p-2 hover:rotate-90 transition-transform duration-300 rounded-full hover:bg-editorial-dark/10 dark:hover:bg-darkmode-surface active:scale-90">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-superwide text-editorial-muted dark:text-darkmode-muted block" data-i18n="curated_universe">// VISUAL MOMENTS & EDITORIAL ARTWORK</span>
+                    <h3 class="font-display font-black text-3xl sm:text-5xl uppercase tracking-tighter animate-quantum-float" data-i18n="visual_gallery">
+                        GALLERY & ASSETS
+                    </h3>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-3">
+                    <label class="bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg text-xs font-bold uppercase tracking-widest px-5 py-3 hover:opacity-90 transition-all cursor-pointer flex items-center gap-2 shadow-xl active:scale-95 hover:scale-105 duration-300">
+                        <i data-lucide="upload" class="w-4 h-4"></i>
+                        <span data-i18n="upload_photo_device">UPLOAD FOTO</span>
+                        <input type="file" id="local-photo-upload" accept="image/*" class="hidden" onchange="handlePhotoUpload(event)">
+                    </label>
+                </div>
+            </div>
+
+            <!-- Gallery Search Bar -->
+            <div class="relative transform transition-all duration-300 hover:scale-[1.01]">
+                <input type="text" id="gallery-search-input" onkeyup="filterOrFetchGallery()" placeholder="Cari foto lokal atau ambil dari internet (ketik kata kunci)..." class="w-full bg-editorial-surface dark:bg-darkmode-surface border border-editorial-dark/20 dark:border-darkmode-border px-5 py-3.5 text-sm focus:outline-none focus:border-editorial-dark shadow-inner">
+                <i data-lucide="search" class="w-4 h-4 absolute right-4 top-4 opacity-50"></i>
+            </div>
+
+            <!-- Redesigned Gallery Cards Grid -->
+            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 pb-10"></div>
+        </section>
+
+
+        <!-- 4. ABOUT VIEW -->
+        <section id="view-about" class="app-view hidden w-full min-h-[85vh] px-6 sm:px-12 py-12 max-w-5xl mx-auto space-y-12 animate-fade-in">
+            <div class="flex justify-between items-center border-b border-editorial-dark/15 dark:border-darkmode-border pb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-[10px] font-black uppercase tracking-superwide px-2.5 py-1 bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg">PAGE</span>
+                    <h2 class="font-display font-extrabold text-xl sm:text-2xl tracking-tight uppercase" data-i18n="about">ABOUT</h2>
+                </div>
+                <button onclick="switchView('hero')" class="p-2 hover:rotate-90 transition-transform duration-300 rounded-full hover:bg-editorial-dark/10 dark:hover:bg-darkmode-surface active:scale-90">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                <div class="md:col-span-5 space-y-6">
+                    <span class="text-xs font-bold tracking-superwide text-editorial-muted dark:text-darkmode-muted uppercase block" data-i18n="about_profile">// ABOUT PROFILE</span>
+                    <h3 class="font-display font-black text-3xl sm:text-5xl uppercase tracking-tighter">FIRMAN M. UBAIDAH.</h3>
+                    <div class="w-16 h-1 bg-editorial-dark dark:bg-darkmode-light"></div>
+                    <p class="text-sm sm:text-base opacity-80 leading-relaxed font-normal" data-i18n="about_desc">
+                        Halo! Nama lengkap saya Firman M. Ubaidah (ウバイダ). Saya adalah seorang web developer, UI designer, dan digital content creator yang berpusat di Yogyakarta. Berfokus pada perancangan aplikasi web interaktif, kustomisasi antarmuka, serta eksperimen game scripting.
+                    </p>
+                </div>
+                
+                <div class="md:col-span-7 space-y-6 bg-editorial-surface dark:bg-darkmode-surface p-8 border border-editorial-border dark:border-darkmode-border shadow-xl transform hover:scale-[1.01] hover:shadow-2xl transition-all duration-400">
+                    <h4 class="font-display font-bold text-lg uppercase tracking-wider" data-i18n="dev_ethos">DEVELOPMENT & CREATIVE ETHOS</h4>
+                    <p class="text-sm opacity-80 leading-relaxed" data-i18n="dev_ethos_desc">
+                        Menggabungkan ketelitian teknis front-end dengan estetika visual editorial yang bersih. Setiap baris kode dirancang untuk memberikan pengalaman pengguna yang cepat, responsif, dan bernyawa artistik.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 pt-4 border-t border-editorial-dark/10 dark:border-darkmode-border">
+                        <div>
+                            <span class="font-display font-black text-3xl sm:text-4xl block">04+</span>
+                            <span class="text-xs uppercase font-bold tracking-wider text-editorial-muted dark:text-darkmode-muted" data-i18n="years_coding">Years Coding</span>
+                        </div>
+                        <div>
+                            <span class="font-display font-black text-3xl sm:text-4xl block">YOGYA</span>
+                            <span class="text-xs uppercase font-bold tracking-wider text-editorial-muted dark:text-darkmode-muted" data-i18n="domicile">Domicile Base</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 pb-10">
+                <div class="p-6 bg-editorial-surface dark:bg-darkmode-surface border border-editorial-dark/20 dark:border-darkmode-border space-y-3 transform hover:-translate-y-2 hover:shadow-2xl transition-all duration-400">
+                    <i data-lucide="code" class="w-6 h-6 text-editorial-dark dark:text-darkmode-light"></i>
+                    <h5 class="font-display font-bold text-sm uppercase">Custom Web Apps</h5>
+                    <p class="text-xs opacity-75">Membangun portofolio kustom, landing page bisnis, dan aplikasi web responsif menggunakan Tailwind CSS & JavaScript.</p>
+                </div>
+                <div class="p-6 bg-editorial-surface dark:bg-darkmode-surface border border-editorial-dark/20 dark:border-darkmode-border space-y-3 transform hover:-translate-y-2 hover:shadow-2xl transition-all duration-400">
+                    <i data-lucide="gamepad-2" class="w-6 h-6 text-editorial-dark dark:text-darkmode-light"></i>
+                    <h5 class="font-display font-bold text-sm uppercase">Game Architecture</h5>
+                    <p class="text-xs opacity-75">Mengeksplorasi arsitektur game web dan script utilitas Lua untuk Roblox serta framework interaktif.</p>
+                </div>
+                <div class="p-6 bg-editorial-surface dark:bg-darkmode-surface border border-editorial-dark/20 dark:border-darkmode-border space-y-3 transform hover:-translate-y-2 hover:shadow-2xl transition-all duration-400">
+                    <i data-lucide="headphones" class="w-6 h-6 text-editorial-dark dark:text-darkmode-light"></i>
+                    <h5 class="font-display font-bold text-sm uppercase">Audio & Visual Vibe</h5>
+                    <p class="text-xs opacity-75">Menyukai kurasi musik lofi/hip-hop serta tata letak visual bergaya majalah editorial modern.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 5. SKILLS VIEW -->
+        <section id="view-skills" class="app-view hidden w-full min-h-[85vh] px-6 sm:px-12 py-12 max-w-4xl mx-auto space-y-12 animate-fade-in">
+            <div class="flex justify-between items-center border-b border-editorial-dark/15 dark:border-darkmode-border pb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-[10px] font-black uppercase tracking-superwide px-2.5 py-1 bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg">PAGE</span>
+                    <h2 class="font-display font-extrabold text-xl sm:text-2xl tracking-tight uppercase" data-i18n="skills">SKILLS</h2>
+                </div>
+                <button onclick="switchView('hero')" class="p-2 hover:rotate-90 transition-transform duration-300 rounded-full hover:bg-editorial-dark/10 dark:hover:bg-darkmode-surface active:scale-90">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <div class="text-left space-y-3">
+                <span class="text-xs font-bold tracking-superwide text-editorial-muted dark:text-darkmode-muted uppercase block" data-i18n="tech_prof">// TECHNICAL PROFICIENCY</span>
+                <h3 class="font-display font-black text-3xl sm:text-5xl uppercase tracking-tighter" data-i18n="skills_title">SKILLS & CAPABILITIES</h3>
+                <p class="text-xs sm:text-sm opacity-70 max-w-lg" data-i18n="skills_subtitle">Daftar keahlian teknis dengan tingkat penguasaan profesional (50% - 90%).</p>
+            </div>
+
+            <div class="space-y-6 flex flex-col items-start pb-10">
+                <div class="w-full max-w-2xl text-left space-y-2">
+                    <div class="flex justify-between items-center text-xs font-bold tracking-widest uppercase">
+                        <span class="font-display">HTML5 & TAILWIND CSS</span>
+                        <span class="bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg px-2 py-0.5 text-[10px]">90%</span>
+                    </div>
+                    <div class="w-full bg-editorial-dark/10 dark:bg-darkmode-surface h-2.5 flex justify-start overflow-hidden rounded-full">
+                        <div class="skill-bar progress-bar-fill bg-editorial-dark dark:bg-darkmode-light h-full rounded-full" data-width="90%" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="w-full max-w-2xl text-left space-y-2">
+                    <div class="flex justify-between items-center text-xs font-bold tracking-widest uppercase">
+                        <span class="font-display">JAVASCRIPT FRONT-END & ES6</span>
+                        <span class="bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg px-2 py-0.5 text-[10px]">85%</span>
+                    </div>
+                    <div class="w-full bg-editorial-dark/10 dark:bg-darkmode-surface h-2.5 flex justify-start overflow-hidden rounded-full">
+                        <div class="skill-bar progress-bar-fill bg-editorial-dark dark:bg-darkmode-light h-full rounded-full" data-width="85%" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="w-full max-w-2xl text-left space-y-2">
+                    <div class="flex justify-between items-center text-xs font-bold tracking-widest uppercase">
+                        <span class="font-display">UI/UX EDITORIAL & FIGMA DESIGN</span>
+                        <span class="bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg px-2 py-0.5 text-[10px]">88%</span>
+                    </div>
+                    <div class="w-full bg-editorial-dark/10 dark:bg-darkmode-surface h-2.5 flex justify-start overflow-hidden rounded-full">
+                        <div class="skill-bar progress-bar-fill bg-editorial-dark dark:bg-darkmode-light h-full rounded-full" data-width="88%" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="w-full max-w-2xl text-left space-y-2">
+                    <div class="flex justify-between items-center text-xs font-bold tracking-widest uppercase">
+                        <span class="font-display">ROBLOX LUA SCRIPTING & UTILITIES</span>
+                        <span class="bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg px-2 py-0.5 text-[10px]">80%</span>
+                    </div>
+                    <div class="w-full bg-editorial-dark/10 dark:bg-darkmode-surface h-2.5 flex justify-start overflow-hidden rounded-full">
+                        <div class="skill-bar progress-bar-fill bg-editorial-dark dark:bg-darkmode-light h-full rounded-full" data-width="80%" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 6. PROJECTS VIEW (WITH RESTRICTED UN-LIKE LOGIC) -->
+        <section id="view-projects" class="app-view hidden w-full min-h-[85vh] px-6 sm:px-12 py-12 max-w-6xl mx-auto space-y-10 animate-fade-in">
+            <div class="flex justify-between items-center border-b border-editorial-dark/15 dark:border-darkmode-border pb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-[10px] font-black uppercase tracking-superwide px-2.5 py-1 bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg">PAGE</span>
+                    <h2 class="font-display font-extrabold text-xl sm:text-2xl tracking-tight uppercase" data-i18n="projects">PROJECTS</h2>
+                </div>
+                <button onclick="switchView('hero')" class="p-2 hover:rotate-90 transition-transform duration-300 rounded-full hover:bg-editorial-dark/10 dark:hover:bg-darkmode-surface active:scale-90">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+                <div>
+                    <span class="text-xs font-bold tracking-superwide text-editorial-muted dark:text-darkmode-muted uppercase block" data-i18n="portfolio_showcase">// PORTFOLIO SHOWCASE</span>
+                    <h3 class="font-display font-black text-3xl sm:text-5xl uppercase tracking-tighter" data-i18n="projects_title">FEATURED PROJECTS</h3>
+                </div>
+
+                <div class="flex flex-wrap gap-2 text-xs font-bold uppercase tracking-wider">
+                    <button onclick="filterProjects('all')" class="project-filter-btn px-4 py-2 border border-editorial-dark dark:border-darkmode-border bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg transition-all active:scale-95">ALL</button>
+                    <button onclick="filterProjects('web')" class="project-filter-btn px-4 py-2 border border-editorial-dark/20 dark:border-darkmode-border hover:border-editorial-dark transition-all active:scale-95">WEB APPS</button>
+                    <button onclick="filterProjects('roblox')" class="project-filter-btn px-4 py-2 border border-editorial-dark/20 dark:border-darkmode-border hover:border-editorial-dark transition-all active:scale-95">ROBLOX SCRIPTS</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-10" id="projects-grid-container">
+                <!-- Rendered Dynamically via JS to sync wishlist like status -->
+            </div>
+        </section>
+
+
+        <!-- 7. EXPERIENCE VIEW -->
+        <section id="view-experience" class="app-view hidden w-full min-h-[85vh] px-6 sm:px-12 py-12 max-w-4xl mx-auto space-y-12 animate-fade-in">
+            <div class="flex justify-between items-center border-b border-editorial-dark/15 dark:border-darkmode-border pb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-[10px] font-black uppercase tracking-superwide px-2.5 py-1 bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg">PAGE</span>
+                    <h2 class="font-display font-extrabold text-xl sm:text-2xl tracking-tight uppercase" data-i18n="experience">EXPERIENCE</h2>
+                </div>
+                <button onclick="switchView('hero')" class="p-2 hover:rotate-90 transition-transform duration-300 rounded-full hover:bg-editorial-dark/10 dark:hover:bg-darkmode-surface active:scale-90">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <div class="text-left space-y-3">
+                <span class="text-xs font-bold tracking-superwide text-editorial-muted dark:text-darkmode-muted uppercase block">// CAREER & TRACK RECORD</span>
+                <h3 class="font-display font-black text-3xl sm:text-5xl uppercase tracking-tighter" data-i18n="exp_title">WORK EXPERIENCE</h3>
+                <p class="text-xs sm:text-sm opacity-70 max-w-lg" data-i18n="exp_subtitle">Jejak langkah profesional di bidang web development dan digital content creation.</p>
+            </div>
+
+            <div class="space-y-8 pb-10">
+                <div class="p-6 bg-editorial-surface dark:bg-darkmode-surface border border-editorial-border dark:border-darkmode-border space-y-3 shadow-xl transform hover:scale-[1.01] hover:shadow-2xl transition-all duration-400">
+                    <div class="flex justify-between items-center text-xs font-bold text-editorial-muted dark:text-darkmode-muted uppercase">
+                        <span>2024 — Present</span>
+                        <span class="px-2 py-0.5 bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg text-[10px]">FULL-TIME</span>
+                    </div>
+                    <h4 class="font-display font-extrabold text-xl uppercase">Senior Web Developer & UI Designer</h4>
+                    <p class="text-xs opacity-80 leading-relaxed">Merancang dan membangun berbagai aplikasi web kustom portofolio, landing page bisnis (seperti Asmini Massage), serta integrasi front-end yang responsif.</p>
+                </div>
+
+                <div class="p-6 bg-editorial-surface dark:bg-darkmode-surface border border-editorial-border dark:border-darkmode-border space-y-3 shadow-xl transform hover:scale-[1.01] hover:shadow-2xl transition-all duration-400">
+                    <div class="flex justify-between items-center text-xs font-bold text-editorial-muted dark:text-darkmode-muted uppercase">
+                        <span>2023 — Present</span>
+                        <span class="px-2 py-0.5 bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg text-[10px]">FREELANCE</span>
+                    </div>
+                    <h4 class="font-display font-extrabold text-xl uppercase">Digital Content Creator & Roblox Scripter</h4>
+                    <p class="text-xs opacity-80 leading-relaxed">Mengembangkan script utilitas Lua untuk Roblox Studio serta memproduksi konten digital kreatif dan aset multimedia interaktif.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 8. CERTIFICATES VIEW -->
+        <section id="view-certificates" class="app-view hidden w-full min-h-[85vh] px-6 sm:px-12 py-12 max-w-4xl mx-auto space-y-12 animate-fade-in">
+            <div class="flex justify-between items-center border-b border-editorial-dark/15 dark:border-darkmode-border pb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-[10px] font-black uppercase tracking-superwide px-2.5 py-1 bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg">PAGE</span>
+                    <h2 class="font-display font-extrabold text-xl sm:text-2xl tracking-tight uppercase" data-i18n="certificates">CERTIFICATES</h2>
+                </div>
+                <button onclick="switchView('hero')" class="p-2 hover:rotate-90 transition-transform duration-300 rounded-full hover:bg-editorial-dark/10 dark:hover:bg-darkmode-surface active:scale-90">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <div class="text-left space-y-3">
+                <span class="text-xs font-bold tracking-superwide text-editorial-muted dark:text-darkmode-muted uppercase block">// AWARDS & CREDENTIALS</span>
+                <h3 class="font-display font-black text-3xl sm:text-5xl uppercase tracking-tighter" data-i18n="cert_title">CERTIFICATES & AWARDS</h3>
+                <p class="text-xs sm:text-sm opacity-70 max-w-lg" data-i18n="cert_subtitle">Sertifikasi resmi dan penghargaan atas keahlian pemrograman web.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-10">
+                <div class="p-6 bg-editorial-surface dark:bg-darkmode-surface border border-editorial-border dark:border-darkmode-border space-y-3 shadow-xl transform hover:scale-[1.01] hover:shadow-2xl transition-all duration-400">
+                    <span class="text-[10px] font-bold text-editorial-muted dark:text-darkmode-muted uppercase">2025</span>
+                    <h4 class="font-display font-bold text-lg uppercase">Advanced Front-End Architecture</h4>
+                    <p class="text-xs opacity-75">Sertifikasi kompetensi pengembangan antarmuka web modern dengan JavaScript & Tailwind CSS.</p>
+                </div>
+                <div class="p-6 bg-editorial-surface dark:bg-darkmode-surface border border-editorial-border dark:border-darkmode-border space-y-3 shadow-xl transform hover:scale-[1.01] hover:shadow-2xl transition-all duration-400">
+                    <span class="text-[10px] font-bold text-editorial-muted dark:text-darkmode-muted uppercase">2024</span>
+                    <h4 class="font-display font-bold text-lg uppercase">UI/UX Editorial Design Masterclass</h4>
+                    <p class="text-xs opacity-75">Pelatihan intensif tata letak editorial, tipografi modern, dan desain responsif.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 9. CONTACT VIEW -->
+        <section id="view-contact" class="app-view hidden w-full min-h-[85vh] px-6 sm:px-12 py-12 max-w-5xl mx-auto space-y-12 animate-fade-in">
+            <div class="flex justify-between items-center border-b border-editorial-dark/15 dark:border-darkmode-border pb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-[10px] font-black uppercase tracking-superwide px-2.5 py-1 bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg">PAGE</span>
+                    <h2 class="font-display font-extrabold text-xl sm:text-2xl tracking-tight uppercase" data-i18n="contact">CONTACT</h2>
+                </div>
+                <button onclick="switchView('hero')" class="p-2 hover:rotate-90 transition-transform duration-300 rounded-full hover:bg-editorial-dark/10 dark:hover:bg-darkmode-surface active:scale-90">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-10">
+                <div class="md:col-span-5 space-y-8">
+                    <div class="space-y-3">
+                        <span class="text-xs font-bold tracking-superwide text-editorial-muted dark:text-darkmode-muted uppercase block">// DIRECT CHANNELS</span>
+                        <h3 class="font-display font-black text-3xl sm:text-5xl uppercase tracking-tighter" data-i18n="connect_support">CONNECT & SUPPORT.</h3>
+                        <p class="text-xs sm:text-sm opacity-70 leading-relaxed" data-i18n="connect_desc">Hubungi saya melalui berbagai platform sosial resmi atau kirim pesan instan langsung.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-3">
+                        <a href="https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=p1dcc6n" target="_blank" class="flex items-center justify-between p-3.5 border border-editorial-dark/20 dark:border-darkmode-border hover:bg-editorial-dark hover:text-white dark:hover:bg-darkmode-light dark:hover:text-darkmode-bg transition-all group shadow-sm active:scale-95 hover:translate-x-1 duration-300">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                                <span class="font-bold text-xs uppercase">Instagram</span>
+                            </div>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </a>
+
+                        <a href="https://t.me/noelandxyza" target="_blank" class="flex items-center justify-between p-3.5 border border-editorial-dark/20 dark:border-darkmode-border hover:bg-editorial-dark hover:text-white dark:hover:bg-darkmode-light dark:hover:text-darkmode-bg transition-all group shadow-sm active:scale-95 hover:translate-x-1 duration-300">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.14-.26.26-.534.26l.213-3.053 5.56-5.023c.242-.213-.054-.334-.373-.121l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.941z"/></svg>
+                                <span class="font-bold text-xs uppercase">Telegram</span>
+                            </div>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </a>
+
+                        <a href="https://discord.gg/KNmcSwk4" target="_blank" class="flex items-center justify-between p-3.5 border border-editorial-dark/20 dark:border-darkmode-border hover:bg-editorial-dark hover:text-white dark:hover:bg-darkmode-light dark:hover:text-darkmode-bg transition-all group shadow-sm active:scale-95 hover:translate-x-1 duration-300">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                                <span class="font-bold text-xs uppercase">Discord</span>
+                            </div>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </a>
+
+                        <a href="https://www.tiktok.com/@noelandxyza" target="_blank" class="flex items-center justify-between p-3.5 border border-editorial-dark/20 dark:border-darkmode-border hover:bg-editorial-dark hover:text-white dark:hover:bg-darkmode-light dark:hover:text-darkmode-bg transition-all group shadow-sm active:scale-95 hover:translate-x-1 duration-300">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.242V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002-.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.853 4.853 0 0 1-1.01-.104z"/></svg>
+                                <span class="font-bold text-xs uppercase">TikTok</span>
+                            </div>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </a>
+
+                        <a href="https://saweria.co/Firman354" target="_blank" class="flex items-center justify-between p-3.5 border border-editorial-dark/20 dark:border-darkmode-border hover:bg-editorial-dark hover:text-white dark:hover:bg-darkmode-light dark:hover:text-darkmode-bg transition-all group shadow-sm active:scale-95 hover:translate-x-1 duration-300">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 fill-current text-amber-600" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                <span class="font-bold text-xs uppercase">Saweria Support</span>
+                            </div>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </a>
+
+                        <a href="https://sociabuzz.com/noellandxyza/tribe" target="_blank" class="flex items-center justify-between p-3.5 border border-editorial-dark/20 dark:border-darkmode-border hover:bg-editorial-dark hover:text-white dark:hover:bg-darkmode-light dark:hover:text-darkmode-bg transition-all group shadow-sm active:scale-95 hover:translate-x-1 duration-300">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 2.07c3.311.381 5.919 2.989 6.3 6.3h-6.3v-6.3zm-2 0v6.3h-6.3c.381-3.311 2.989-5.919 6.3-6.3zm-8.35 8.33h7.35v7.35c-3.12-.34-5.67-2.89-6.01-6.01-.11-.44-.21-.89-.3-1.34zm9.35 7.35v-7.35h7.35c-.34 3.12-2.89 5.67-6.01 6.01-.44.09-.89.19-1.34.3zm8.35-9.35h-7.35v-7.35c3.12.34 5.67 2.89 6.01 6.01.11.44.21.89.3 1.34zm-16.7 0c.09.45.19.9.3 1.34.34 3.12 2.89 5.67 6.01 6.01v-7.35h-6.31z"/></svg>
+                                <span class="font-bold text-xs uppercase">SociaBuzz Tribe</span>
+                            </div>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Direct Message Form -->
+                <div class="md:col-span-7 bg-editorial-surface dark:bg-darkmode-surface p-8 border border-editorial-border dark:border-darkmode-border space-y-6 shadow-2xl transform hover:scale-[1.01] transition-all duration-400">
+                    <h4 class="font-display font-bold text-xl uppercase tracking-wider" data-i18n="send_direct_message">KIRIM PESAN LANGSUNG</h4>
+                    
+                    <form onsubmit="handleDirectMessageSubmit(event)" class="space-y-5">
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-widest text-editorial-muted dark:text-darkmode-muted mb-2" data-i18n="your_name">NAMA ANDA</label>
+                            <input type="text" id="msg-name" required placeholder="Firman M." class="w-full bg-editorial-bg dark:bg-darkmode-bg border border-editorial-dark/20 dark:border-darkmode-border px-4 py-3 text-sm focus:outline-none focus:border-editorial-dark transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-widest text-editorial-muted dark:text-darkmode-muted mb-2" data-i18n="your_message">PESAN / PERTANYAAN</label>
+                            <textarea id="msg-text" rows="3" required placeholder="Halo Firman, saya ingin berdiskusi mengenai proyek web..." class="w-full bg-editorial-bg dark:bg-darkmode-bg border border-editorial-dark/20 dark:border-darkmode-border px-4 py-3 text-sm focus:outline-none focus:border-editorial-dark transition-all"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-widest text-editorial-muted dark:text-darkmode-muted mb-2" data-i18n="delivery_method">PILIH METODE PENGIRIMAN</label>
+                            <select id="msg-method" class="w-full bg-editorial-bg dark:bg-darkmode-bg border border-editorial-dark/20 dark:border-darkmode-border px-4 py-3 text-sm font-bold uppercase focus:outline-none focus:border-editorial-dark transition-all">
+                                <option value="whatsapp">WhatsApp</option>
+                                <option value="gmail">Gmail</option>
+                                <option value="instagram">Instagram</option>
+                                <option value="telegram">Telegram</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg font-bold text-xs uppercase tracking-superwide py-4 hover:opacity-95 transition-all flex items-center justify-center gap-2 active:scale-95 shadow-xl hover:scale-[1.01]">
+                            <span data-i18n="send_now">KIRIM PESAN SEKARANG</span>
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 10. SEARCH VIEW (GLOBAL SEARCH ENGINE) -->
+        <section id="view-search" class="app-view hidden w-full min-h-[85vh] px-6 sm:px-12 py-12 max-w-3xl mx-auto space-y-8 animate-fade-in">
+            <div class="flex justify-between items-center border-b border-editorial-dark/15 dark:border-darkmode-border pb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-[10px] font-black uppercase tracking-superwide px-2.5 py-1 bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg">TOOL</span>
+                    <h2 class="font-display font-extrabold text-xl sm:text-2xl tracking-tight uppercase" data-i18n="search_page">SEARCH</h2>
+                </div>
+                <button onclick="switchView('hero')" class="p-2 hover:rotate-90 transition-transform duration-300 rounded-full hover:bg-editorial-dark/10 dark:hover:bg-darkmode-surface active:scale-90">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <div class="space-y-4">
+                <span class="text-xs font-bold tracking-superwide text-editorial-muted dark:text-darkmode-muted uppercase block" data-i18n="search_title">// GLOBAL PORTFOLIO SEARCH</span>
+                <div class="relative transform transition-all duration-300 hover:scale-[1.01]">
+                    <input id="search-input" type="text" onkeyup="performGlobalSearch()" placeholder="Ketik apa saja (halaman, skill, lagu, galeri, kontak)..." class="w-full bg-editorial-surface dark:bg-darkmode-surface border-2 border-editorial-dark dark:border-darkmode-border px-6 py-4 text-lg font-bold placeholder:opacity-40 focus:outline-none shadow-xl">
+                    <i data-lucide="search" class="w-6 h-6 absolute right-6 top-4 opacity-50"></i>
+                </div>
+            </div>
+
+            <div id="search-results" class="space-y-3 pb-10">
+                <div class="p-4 border border-editorial-dark/10 dark:border-darkmode-border cursor-pointer hover:bg-editorial-surface dark:hover:bg-darkmode-surface shadow-sm transition-all hover:translate-x-1" onclick="switchView('skills')">
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-editorial-muted dark:text-darkmode-muted">SKILL</span>
+                    <h5 class="font-bold text-sm">HTML5, Tailwind CSS, JavaScript & Roblox Scripts</h5>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 11. WISHLIST VIEW (REDESIGNED SAVED FAVORITES) -->
+        <section id="view-wishlist" class="app-view hidden w-full min-h-[85vh] px-6 sm:px-12 py-12 max-w-4xl mx-auto space-y-8 animate-fade-in">
+            <div class="flex justify-between items-center border-b border-editorial-dark/15 dark:border-darkmode-border pb-6">
+                <div class="flex items-center space-x-4">
+                    <span class="text-[10px] font-black uppercase tracking-superwide px-2.5 py-1 bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg">TOOL</span>
+                    <h2 class="font-display font-extrabold text-xl sm:text-2xl tracking-tight uppercase" data-i18n="wishlist_page">WISHLIST</h2>
+                </div>
+                <button onclick="switchView('hero')" class="p-2 hover:rotate-90 transition-transform duration-300 rounded-full hover:bg-editorial-dark/10 dark:hover:bg-darkmode-surface active:scale-90">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <div class="space-y-2 pb-4">
+                <span class="text-xs font-bold tracking-superwide text-editorial-muted dark:text-darkmode-muted uppercase block" data-i18n="saved_items">// ITEM TERSIMPAN</span>
+                <h3 class="font-display font-black text-3xl uppercase tracking-tighter" data-i18n="saved_works">PROYEK FAVORIT SAYA</h3>
+            </div>
+
+            <div id="wishlist-container" class="grid grid-cols-1 md:grid-cols-2 gap-4 pb-10">
+                <p id="empty-wishlist-msg" class="text-xs font-bold uppercase tracking-widest text-editorial-muted dark:text-darkmode-muted col-span-full py-8 text-center border-2 border-dashed border-editorial-dark/20 dark:border-darkmode-border" data-i18n="empty_wishlist">Belum ada item tersimpan. Klik ikon hati pada proyek untuk menyimpan ke sini.</p>
+            </div>
+        </section>
+
     </div>
 
 
     <!-- ==================== JAVASCRIPT CONTROLLER ==================== -->
     <script>
         const wishlist = new Set();
+        let isOwnerLoggedIn = localStorage.getItem('fmu_owner_logged') === 'true';
 
-        // GREEN SCREEN REMOVAL CANVAS ENGINE
-        function removeGreenScreen() {
-            const img = document.getElementById('hero-person-src');
-            const canvas = document.getElementById('hero-person-canvas');
-            if (!img || !canvas) return;
+        // ENCRYPTED CREDENTIALS (OBFUSCATED TO HIDE FROM INSPECT ELEMENT)
+        const _encID = "Ym9nZWxmaXJtYW4zNTRAZ21haWwuY29t";
+        const _encPWs = ["Ym9nZWxsMzU0", "Qm9nZWxsMzU0IQ=="];
 
-            const ctx = canvas.getContext('2d');
-            canvas.width = img.naturalWidth || 1000;
-            canvas.height = img.naturalHeight || 1800;
-
-            ctx.drawImage(img, 0, 0);
-
-            try {
-                const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-                const data = imgData.data;
-
-                // Chroma Key Algorithm for Green Screen
-                for (let i = 0; i < data.length; i += 4) {
-                    const r = data[i];
-                    const g = data[i + 1];
-                    const b = data[i + 2];
-
-                    // Check if pixel is green screen (Green is dominant over red and blue)
-                    const isGreen = (g > 70 && g > r * 1.15 && g > b * 1.15);
-                    const isLightGreen = (g > 100 && r > 80 && b > 80 && g > r && g > b);
-
-                    if (isGreen || isLightGreen) {
-                        data[i + 3] = 0; // Set alpha to 0 (fully transparent)
-                    }
-                }
-
-                ctx.putImageData(imgData, 0, 0);
-            } catch (err) {
-                console.log("Canvas processing active using fallback mode.");
-            }
+        function checkIsOwner() {
+            return isOwnerLoggedIn;
         }
 
-        // Initialize Lucide Icons & Cutout Processing on Load
-        window.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
-            initMouseParallax();
+        // PLAYLIST DATA
+        const githubSongBase = "https://raw.githubusercontent.com/noelandxyza/portpholio.github.io/main/song/";
+        
+        let defaultPlaylist = [
+            { title: "rmbr me", artist: "pryme!", src: `${githubSongBase}rmbr-me.mp3`, fallback: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", lyrics: "Remembering all the late night coding sessions in Yogyakarta..." },
+            { title: "Fantasy II", artist: "D-Real X Lavera", src: `${githubSongBase}fantasy-ii.mp3`, fallback: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3", lyrics: "Escaping into digital fantasy realms and clean UI components..." },
+            { title: "Eyes", artist: "Westwood", src: `${githubSongBase}eyes.mp3`, fallback: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3", lyrics: "Focused eyes on the screen, crafting seamless web architecture..." },
+            { title: "don't matter", artist: "pryme!", src: `${githubSongBase}dont-matter.mp3`, fallback: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3", lyrics: "Nothing else matters when the code compiles successfully..." },
+            { title: "Ur All Mine", artist: "Westwood", src: `${githubSongBase}ur-all-mine.mp3`, fallback: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3", lyrics: "Dedicated exclusively to clean minimalist editorial aesthetics..." },
+            { title: "Get There", artist: "Westwood", src: `${githubSongBase}get-there.mp3`, fallback: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3", lyrics: "Step by step, pushing the boundaries of creative front-end design..." }
+        ];
 
-            const img = document.getElementById('hero-person-src');
-            if (img.complete) {
-                removeGreenScreen();
+        let playlistData = JSON.parse(localStorage.getItem('fmu_playlist')) || defaultPlaylist;
+
+        // GALLERY DATA
+        const githubAssetBase = "https://raw.githubusercontent.com/noelandxyza/portpholio.github.io/main/asset/";
+
+        let defaultGallery = [
+            { url: `${githubAssetBase}workspace-1.jpg`, title: "Dev Workspace 2026", fallback: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80" },
+            { url: `${githubAssetBase}code-setup.jpg`, title: "Frontend Architecture", fallback: "https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=800&q=80" },
+            { url: `${githubAssetBase}yogyakarta.jpg`, title: "Yogyakarta Vibes", fallback: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" }
+        ];
+
+        let galleryItems = JSON.parse(localStorage.getItem('fmu_gallery')) || defaultGallery;
+
+        // PROJECTS DATA
+        const projectsData = [
+            { title: "Asmini Massage Web", category: "web", year: "2026", desc: "Professional landing page and booking web application built with modern responsive web standards.", link: "https://asminimassage.vercel.app/", tech: "VERCEL / WEB APP" },
+            { title: "Roblox Script Utilities", category: "roblox", year: "2025 - 2026", desc: "Custom Lua scripts, GUI frameworks, and movement helper tools engineered for Roblox environments.", link: "https://github.com/noelandxyza", tech: "LUA / ROBLOX STUDIO" },
+            { title: "Creative Universe Portfolio", category: "web", year: "2026", desc: "Interactive editorial portfolio featuring multi-language translation, dark mode, and media upload features.", link: "https://github.com/noelandxyza/portpholio.github.io", tech: "HTML / TAILWIND / JS" }
+        ];
+
+        let currentTrackIndex = 0;
+        let audioElement = new Audio();
+        let isPlaying = false;
+        let isLooping = false;
+
+        function initAudio() {
+            if (!playlistData[currentTrackIndex]) return;
+            const track = playlistData[currentTrackIndex];
+            audioElement.src = track.src;
+            audioElement.onerror = function() {
+                if (track.fallback) {
+                    audioElement.src = track.fallback;
+                }
+            };
+        }
+        initAudio();
+
+        audioElement.addEventListener('ended', () => {
+            if (isLooping) {
+                audioElement.play();
             } else {
-                img.onload = removeGreenScreen;
+                nextTrack();
             }
         });
 
-        // View State Switcher (Multi-page Architecture)
-        function switchView(targetSection) {
-            const modalWrapper = document.getElementById('modal-wrapper');
-            const modalBackdrop = document.getElementById('modal-backdrop');
-            const modalContainer = document.getElementById('modal-card');
-            const modalTitle = document.getElementById('modal-title');
-            const modalCategoryBadge = document.getElementById('modal-category-badge');
+        audioElement.addEventListener('timeupdate', () => {
+            const currentTime = audioElement.currentTime;
+            const duration = audioElement.duration || 1;
+            const progressPercent = (currentTime / duration) * 100;
+            const progressBar = document.getElementById('audio-progress-bar');
+            if (progressBar) progressBar.style.width = `${progressPercent}%`;
 
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                if (btn.getAttribute('data-target') === targetSection) {
-                    btn.classList.add('opacity-100');
-                    btn.classList.remove('opacity-60');
-                } else {
-                    btn.classList.remove('opacity-100');
-                    btn.classList.add('opacity-60');
-                }
-            });
+            const currentMin = Math.floor(currentTime / 60);
+            const currentSec = Math.floor(currentTime % 60);
+            const totalMin = Math.floor(duration / 60);
+            const totalSec = Math.floor(duration % 60);
 
-            if (targetSection === 'hero') {
-                closeModal();
+            const currEl = document.getElementById('current-time');
+            const durEl = document.getElementById('total-duration');
+            if (currEl) currEl.innerText = `${currentMin}:${currentSec < 10 ? '0' : ''}${currentSec}`;
+            if (durEl) durEl.innerText = `${totalMin}:${totalSec < 10 ? '0' : ''}${totalSec}`;
+        });
+
+        function renderPlaylist(filteredList = null) {
+            const grid = document.getElementById('playlist-grid');
+            const clearBtn = document.getElementById('clear-all-music-btn');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            const listToRender = filteredList || playlistData;
+
+            if (isOwnerLoggedIn && playlistData.length > 0) {
+                if (clearBtn) clearBtn.classList.remove('hidden');
+                if (clearBtn) clearBtn.classList.add('flex');
+            } else {
+                if (clearBtn) clearBtn.classList.add('hidden');
+                if (clearBtn) clearBtn.classList.remove('flex');
+            }
+
+            if (listToRender.length === 0) {
+                grid.innerHTML = `<p class="text-xs uppercase tracking-widest text-editorial-muted col-span-full py-6">Tidak ada lagu yang ditemukan.</p>`;
                 return;
             }
 
-            document.querySelectorAll('.modal-section').forEach(sec => sec.classList.add('hidden'));
+            listToRender.forEach((track, index) => {
+                const div = document.createElement('div');
+                const isCurrent = playlistData[currentTrackIndex] && playlistData[currentTrackIndex].title === track.title;
+                div.className = `p-4 border ${isCurrent ? 'border-editorial-dark bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg shadow-xl' : 'border-editorial-dark/20 dark:border-darkmode-border bg-editorial-bg dark:bg-darkmode-bg'} cursor-pointer hover:shadow-2xl transition-all flex items-center justify-between group transform hover:-translate-y-1.5 duration-300`;
+                div.onclick = () => {
+                    const actualIdx = playlistData.findIndex(t => t.title === track.title);
+                    if (actualIdx !== -1) selectTrack(actualIdx);
+                };
 
-            const activeSection = document.getElementById(`content-${targetSection}`);
-            if (activeSection) {
-                activeSection.classList.remove('hidden');
+                let deleteButtonHtml = '';
+                if (isOwnerLoggedIn) {
+                    deleteButtonHtml = `
+                        <button onclick="event.stopPropagation(); deleteMusicItem(${index})" class="p-1.5 text-red-500 hover:scale-125 transition-transform duration-300" title="Hapus Lagu Ini">
+                            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                        </button>
+                    `;
+                }
+
+                div.innerHTML = `
+                    <div class="space-y-1">
+                        <span class="text-[10px] font-mono opacity-60">#${String(index + 1).padStart(2, '0')}</span>
+                        <h5 class="font-display font-bold text-sm uppercase truncate max-w-[150px]">${track.title}</h5>
+                        <p class="text-[11px] opacity-70">${track.artist || 'Local / Cloud'}</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        ${deleteButtonHtml}
+                        <button onclick="event.stopPropagation(); downloadSongItem('${track.src}', '${track.title}')" class="p-1.5 opacity-60 hover:opacity-100 transition-opacity" title="Download MP3">
+                            <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                        </button>
+                        <div class="p-2 rounded-full ${isCurrent ? 'bg-white text-editorial-dark dark:bg-darkmode-bg dark:text-darkmode-light' : 'bg-editorial-dark text-white dark:bg-darkmode-light dark:text-darkmode-bg'} group-hover:scale-110 transition-transform">
+                            <i data-lucide="${isCurrent && isPlaying ? 'pause' : 'play'}" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(div);
+            });
+            lucide.createIcons();
+        }
+
+        function selectTrack(index) {
+            currentTrackIndex = index;
+            const track = playlistData[index];
+            audioElement.src = track.src;
+            audioElement.onerror = function() {
+                if (track.fallback) audioElement.src = track.fallback;
+            };
+            audioElement.play().catch(e => console.log(e));
+            isPlaying = true;
+            
+            document.getElementById('current-track-title').innerText = track.title;
+            document.getElementById('current-track-artist').innerText = track.artist || 'Local / Cloud';
+            document.getElementById('home-track-title').innerText = track.title;
+            document.getElementById('track-lyrics').innerText = `"${track.lyrics || 'Playing custom soundtrack rotation...'}"`;
+            
+            const playBtnHtml = `<i data-lucide="pause" class="w-6 h-6"></i>`;
+            const homePlayHtml = `<i data-lucide="pause" class="w-4 h-4"></i>`;
+            
+            const pBtn = document.getElementById('play-pause-btn');
+            const hBtn = document.getElementById('home-play-btn');
+            if (pBtn) pBtn.innerHTML = playBtnHtml;
+            if (hBtn) hBtn.innerHTML = homePlayHtml;
+
+            const disc = document.getElementById('player-disc');
+            if (disc) disc.classList.add('animate-spin');
+            
+            renderPlaylist();
+            showToast(`Playing: ${track.title}`);
+            lucide.createIcons();
+        }
+
+        function togglePlay() {
+            if (!audioElement.src) {
+                selectTrack(0);
+                return;
+            }
+            const btn = document.getElementById('play-pause-btn');
+            const homeBtn = document.getElementById('home-play-btn');
+            const disc = document.getElementById('player-disc');
+            
+            if (isPlaying) {
+                audioElement.pause();
+                isPlaying = false;
+                if (btn) btn.innerHTML = `<i data-lucide="play" class="w-6 h-6"></i>`;
+                if (homeBtn) homeBtn.innerHTML = `<i data-lucide="play" class="w-4 h-4"></i>`;
+                if (disc) disc.classList.remove('animate-spin');
+                showToast(`Music Paused`);
+            } else {
+                audioElement.play().catch(e => console.log(e));
+                isPlaying = true;
+                if (btn) btn.innerHTML = `<i data-lucide="pause" class="w-6 h-6"></i>`;
+                if (homeBtn) homeBtn.innerHTML = `<i data-lucide="pause" class="w-4 h-4"></i>`;
+                if (disc) disc.classList.add('animate-spin');
+                showToast(`Resumed: ${playlistData[currentTrackIndex].title}`);
+            }
+            renderPlaylist();
+            lucide.createIcons();
+        }
+
+        function nextTrack() {
+            currentTrackIndex = (currentTrackIndex + 1) % playlistData.length;
+            selectTrack(currentTrackIndex);
+        }
+
+        function prevTrack() {
+            currentTrackIndex = (currentTrackIndex - 1 + playlistData.length) % playlistData.length;
+            selectTrack(currentTrackIndex);
+        }
+
+        function toggleLoop() {
+            isLooping = !isLooping;
+            const loopBtn = document.getElementById('loop-btn');
+            if (isLooping) {
+                loopBtn.classList.remove('text-editorial-muted');
+                loopBtn.classList.add('text-emerald-500', 'border-emerald-500');
+                showToast("Loop Mode: ON");
+            } else {
+                loopBtn.classList.remove('text-emerald-500', 'border-emerald-500');
+                loopBtn.classList.add('text-editorial-muted');
+                showToast("Loop Mode: OFF");
+            }
+        }
+
+        function seekAudio(event) {
+            const rect = event.currentTarget.getBoundingClientRect();
+            const clickX = event.clientX - rect.left;
+            const width = rect.width;
+            const percentage = clickX / width;
+            if (audioElement.duration) {
+                audioElement.currentTime = percentage * audioElement.duration;
+            }
+        }
+
+        function handleAudioUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const fileUrl = URL.createObjectURL(file);
+            const fileName = file.name.replace(/\.[^/.]+$/, "");
+
+            playlistData.unshift({
+                title: fileName,
+                artist: "User Upload",
+                src: fileUrl,
+                lyrics: "Custom uploaded audio track playing directly from device storage."
+            });
+
+            localStorage.setItem('fmu_playlist', JSON.stringify(playlistData));
+            selectTrack(0);
+            showToast(`Berhasil memuat lagu: ${fileName}`);
+        }
+
+        function deleteMusicItem(index) {
+            if (!isOwnerLoggedIn) {
+                showToast("Akses ditolak! Hanya Owner yang dapat menghapus musik.");
+                openOwnerLoginModal();
+                return;
+            }
+            playlistData.splice(index, 1);
+            localStorage.setItem('fmu_playlist', JSON.stringify(playlistData));
+            renderPlaylist();
+            showToast("Lagu berhasil dihapus.");
+        }
+
+        function clearAllMusic() {
+            if (!isOwnerLoggedIn) {
+                showToast("Akses ditolak! Hanya Owner.");
+                return;
+            }
+            if (confirm("Apakah Anda yakin ingin menghapus seluruh playlist musik?")) {
+                playlistData = [];
+                localStorage.setItem('fmu_playlist', JSON.stringify(playlistData));
+                renderPlaylist();
+                showToast("Semua musik telah dihapus.");
+            }
+        }
+
+        function downloadCurrentTrack() {
+            const track = playlistData[currentTrackIndex];
+            downloadSongItem(track.src, track.title);
+        }
+
+        function downloadSongItem(url, title) {
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${title}.mp3`;
+            a.target = '_blank';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            showToast(`Mengunduh MP3: ${title}`);
+        }
+
+        function filterOrFetchMusic() {
+            const query = document.getElementById('music-search-input').value.toLowerCase().trim();
+            if (!query) {
+                renderPlaylist();
+                return;
             }
 
-            modalTitle.innerText = targetSection.toUpperCase();
-            modalCategoryBadge.innerText = targetSection === 'search' || targetSection === 'wishlist' ? 'TOOL' : 'PAGE';
+            const filtered = playlistData.filter(t => t.title.toLowerCase().includes(query) || t.artist.toLowerCase().includes(query));
+            
+            if (filtered.length > 0) {
+                renderPlaylist(filtered);
+            } else {
+                const externalResult = [{
+                    title: `External: ${query.toUpperCase()}`,
+                    artist: "Online Music Source",
+                    src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+                    lyrics: `Result fetched automatically from external web database for "${query}".`
+                }];
+                renderPlaylist(externalResult);
+            }
+        }
 
-            modalWrapper.classList.remove('pointer-events-none', 'opacity-0');
-            modalBackdrop.classList.remove('opacity-0');
-            modalContainer.classList.remove('translate-y-full');
+        // GALLERY PHOTO UPLOAD & MANAGEMENT
+        function handlePhotoUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const photoBase64 = e.target.result;
+                const photoTitle = file.name.replace(/\.[^/.]+$/, "");
+
+                galleryItems.unshift({
+                    url: photoBase64,
+                    title: photoTitle || "Local Moment"
+                });
+
+                localStorage.setItem('fmu_gallery', JSON.stringify(galleryItems));
+                renderGallery();
+                showToast(`Foto berhasil diunggah!`);
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function renderGallery(filteredList = null) {
+            const grid = document.getElementById('gallery-grid');
+            if (!grid) return;
+
+            const listToRender = filteredList || galleryItems;
+
+            if (listToRender.length === 0) {
+                grid.innerHTML = `
+                    <div class="border-2 border-dashed border-editorial-dark/20 dark:border-darkmode-border p-16 text-center flex flex-col items-center justify-center space-y-3 bg-editorial-surface dark:bg-darkmode-surface col-span-full">
+                        <i data-lucide="camera" class="w-10 h-10 text-editorial-muted"></i>
+                        <p class="text-xs font-bold uppercase tracking-widest text-editorial-muted">Tidak ada foto ditemukan.</p>
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
+            grid.innerHTML = '';
+            listToRender.forEach((item, idx) => {
+                const div = document.createElement('div');
+                div.className = 'border border-editorial-dark/20 dark:border-darkmode-border bg-editorial-surface dark:bg-darkmode-surface overflow-hidden group shadow-2xl animate-fade-in transform hover:-translate-y-2 transition-all duration-500';
+
+                let deleteBtnHtml = '';
+                if (isOwnerLoggedIn) {
+                    deleteBtnHtml = `<button onclick="event.stopPropagation(); removeGalleryItem(${idx})" class="text-[10px] text-red-500 font-bold uppercase hover:underline">HAPUS</button>`;
+                }
+
+                div.innerHTML = `
+                    <div class="h-72 overflow-hidden bg-editorial-bg dark:bg-darkmode-bg relative cursor-pointer" onclick="openLightbox('${item.url}', '${item.title}')">
+                        <img src="${item.url}" onerror="this.src='${item.fallback || 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80'}'" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out">
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-xs">
+                            <span class="bg-white text-editorial-dark dark:bg-darkmode-bg dark:text-darkmode-light px-4 py-2 text-[10px] font-bold uppercase tracking-widest shadow-2xl transform translate-y-2 group-hover:translate-y-0 transition-transform">ZOOM PHOTO</span>
+                        </div>
+                    </div>
+                    <div class="p-4 flex justify-between items-center bg-editorial-surface dark:bg-darkmode-surface border-t border-editorial-dark/10 dark:border-darkmode-border">
+                        <span class="font-display font-bold text-xs uppercase truncate">${item.title}</span>
+                        <div class="flex items-center gap-3">
+                            <a href="${item.url}" download="${item.title}.jpg" target="_blank" onclick="event.stopPropagation()" class="text-[10px] font-bold uppercase hover:underline">DOWNLOAD</a>
+                            ${deleteBtnHtml}
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(div);
+            });
+            lucide.createIcons();
+        }
+
+        function removeGalleryItem(index) {
+            if (!isOwnerLoggedIn) {
+                showToast("Akses ditolak! Hanya Owner yang dapat menghapus foto.");
+                openOwnerLoginModal();
+                return;
+            }
+            galleryItems.splice(index, 1);
+            localStorage.setItem('fmu_gallery', JSON.stringify(galleryItems));
+            renderGallery();
+            showToast("Foto dihapus dari galeri.");
+        }
+
+        function openLightbox(url, title) {
+            const modal = document.getElementById('lightbox-modal');
+            const img = document.getElementById('lightbox-img');
+            const caption = document.getElementById('lightbox-caption');
+            
+            img.src = url;
+            caption.innerText = title;
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.remove('scale-95');
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightbox-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.add('scale-95');
+        }
+
+        function filterOrFetchGallery() {
+            const query = document.getElementById('gallery-search-input').value.toLowerCase().trim();
+            if (!query) {
+                renderGallery();
+                return;
+            }
+
+            const filtered = galleryItems.filter(i => i.title.toLowerCase().includes(query));
+            if (filtered.length > 0) {
+                renderGallery(filtered);
+            } else {
+                const externalResults = [
+                    { url: `https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80`, title: `Web Source: ${query} 1` },
+                    { url: `https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=800&q=80`, title: `Web Source: ${query} 2` }
+                ];
+                renderGallery(externalResults);
+            }
+        }
+
+
+        // PROJECTS & WISHLIST LOGIC (RESTRICTED UN-LIKE UNLESS OWNER)
+        function renderProjects(activeCategory = 'all') {
+            const container = document.getElementById('projects-grid-container');
+            if (!container) return;
+            container.innerHTML = '';
+
+            projectsData.forEach(proj => {
+                if (activeCategory !== 'all' && proj.category !== activeCategory) return;
+
+                const isLiked = wishlist.has(proj.title);
+                const div = document.createElement('div');
+                div.className = 'project-card group border border-editorial-dark/20 dark:border-darkmode-border bg-editorial-surface dark:bg-darkmode-surface flex flex-col justify-between overflow-hidden shadow-xl transform hover:-translate-y-2 transition-all duration-400';
+                div.setAttribute('data-category', proj.category);
+
+                div.innerHTML = `
+                    <div class="p-6 space-y-4">
+                        <div class="flex justify-between items-center text-xs font-bold text-editorial-muted dark:text-darkmode-muted">
+                            <span>${proj.year}</span>
+                            <button onclick="toggleWishlist('${proj.title}')" class="hover:scale-125 transition-transform active:scale-90" title="Like Project">
+                                <i data-lucide="heart" class="w-5 h-5 ${isLiked ? 'fill-red-500 text-red-500' : 'text-editorial-muted dark:text-darkmode-muted'}"></i>
+                            </button>
+                        </div>
+                        <h4 class="font-display font-extrabold text-2xl uppercase tracking-tight group-hover:translate-x-1 transition-transform">${proj.title}</h4>
+                        <p class="text-xs opacity-75 leading-relaxed">${proj.desc}</p>
+                    </div>
+                    <div class="px-6 py-4 bg-editorial-bg dark:bg-darkmode-bg border-t border-editorial-dark/10 dark:border-darkmode-border flex justify-between items-center text-xs font-bold">
+                        <span class="text-editorial-muted dark:text-darkmode-muted uppercase">${proj.tech}</span>
+                        <a href="${proj.link}" target="_blank" class="flex items-center gap-1 hover:underline">
+                            VISIT <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+            lucide.createIcons();
+        }
+
+        function filterProjects(category) {
+            const btns = document.querySelectorAll('.project-filter-btn');
+            btns.forEach(btn => {
+                btn.classList.remove('bg-editorial-dark', 'text-white', 'dark:bg-darkmode-light', 'dark:text-darkmode-bg');
+                btn.classList.add('border-editorial-dark/20', 'dark:border-darkmode-border');
+            });
+            event.target.classList.add('bg-editorial-dark', 'text-white', 'dark:bg-darkmode-light', 'dark:text-darkmode-bg');
+            renderProjects(category);
+        }
+
+        function toggleWishlist(itemTitle) {
+            const countBadge = document.getElementById('wishlist-count');
+            
+            if (wishlist.has(itemTitle)) {
+                if (!isOwnerLoggedIn) {
+                    showToast("Visitor tidak dapat meng-un-like proyek kecuali Sign In sebagai Owner!");
+                    openOwnerLoginModal();
+                    return;
+                } else {
+                    wishlist.delete(itemTitle);
+                    showToast(`Unliked: "${itemTitle}" (Owner Mode)`);
+                }
+            } else {
+                wishlist.add(itemTitle);
+                showToast(`Liked & Saved: "${itemTitle}"`);
+            }
+
+            countBadge.innerText = wishlist.size;
+            renderProjects();
+            renderWishlistPage();
+        }
+
+        function renderWishlistPage() {
+            const container = document.getElementById('wishlist-container');
+            const emptyMsg = document.getElementById('empty-wishlist-msg');
+            if (!container) return;
+
+            if (wishlist.size === 0) {
+                container.innerHTML = `<p id="empty-wishlist-msg" class="text-xs font-bold uppercase tracking-widest text-editorial-muted dark:text-darkmode-muted col-span-full py-8 text-center border-2 border-dashed border-editorial-dark/20 dark:border-darkmode-border">Belum ada item tersimpan. Klik ikon hati pada proyek untuk menyimpan ke sini.</p>`;
+                return;
+            }
+
+            container.innerHTML = '';
+            wishlist.forEach(item => {
+                const projObj = projectsData.find(p => p.title === item) || { title: item, desc: 'Saved favorite portfolio project.', link: '#' };
+                const div = document.createElement('div');
+                div.className = 'p-6 border border-editorial-dark/20 dark:border-darkmode-border flex flex-col justify-between bg-editorial-surface dark:bg-darkmode-surface animate-fade-in shadow-xl space-y-4';
+                div.innerHTML = `
+                    <div class="space-y-1">
+                        <span class="text-[10px] font-bold text-red-500 uppercase tracking-widest">FAVORITE PROJECT</span>
+                        <h5 class="font-display font-bold text-lg uppercase">${projObj.title}</h5>
+                        <p class="text-xs opacity-75">${projObj.desc || ''}</p>
+                    </div>
+                    <div class="flex justify-between items-center pt-2 border-t border-editorial-dark/10 dark:border-darkmode-border">
+                        <a href="${projObj.link || '#'}" target="_blank" class="text-xs font-bold uppercase hover:underline flex items-center gap-1">VIEW <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></a>
+                        <button onclick="toggleWishlist('${item}')" class="text-xs font-bold uppercase tracking-wider text-red-500 hover:scale-105 transition-transform">REMOVE (UNLIKE)</button>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+            lucide.createIcons();
+        }
+
+
+        // DARK & LIGHT MODE TOGGLE
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const themeIcon = document.getElementById('theme-icon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                themeIcon.setAttribute('data-lucide', 'moon');
+                showToast("Light Mode Diaktifkan");
+            } else {
+                html.classList.add('dark');
+                themeIcon.setAttribute('data-lucide', 'sun');
+                showToast("Dark Mode Diaktifkan");
+            }
+            lucide.createIcons();
+        }
+
+
+        // OWNER LOGIN FUNCTIONS
+        function openOwnerLoginModal() {
+            if (isOwnerLoggedIn) {
+                if (confirm("Keluar dari akun Owner (Sign Out)?")) {
+                    isOwnerLoggedIn = false;
+                    localStorage.setItem('fmu_owner_logged', 'false');
+                    updateOwnerUI();
+                    showToast("Signed Out successfully.");
+                }
+                return;
+            }
+            const modal = document.getElementById('owner-login-modal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.remove('scale-95');
+        }
+
+        function closeOwnerLoginModal() {
+            const modal = document.getElementById('owner-login-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.add('scale-95');
+            document.getElementById('login-error-box').classList.add('hidden');
+        }
+
+        function handleOwnerLoginSubmit(e) {
+            e.preventDefault();
+            const inputId = document.getElementById('owner-input-id').value.trim();
+            const inputPw = document.getElementById('owner-input-pw').value.trim();
+
+            const encodedId = btoa(inputId);
+            const encodedPw = btoa(inputPw);
+
+            if (encodedId === _encID && _encPWs.includes(encodedPw)) {
+                isOwnerLoggedIn = true;
+                localStorage.setItem('fmu_owner_logged', 'true');
+                closeOwnerLoginModal();
+                updateOwnerUI();
+                showToast("Login Berhasil! Selamat datang Owner.");
+            } else {
+                const errBox = document.getElementById('login-error-box');
+                errBox.classList.remove('hidden');
+                showToast("Autentikasi gagal! ID atau Password salah.");
+            }
+        }
+
+        function updateOwnerUI() {
+            const statusEl = document.getElementById('owner-status-display');
+            const btnText = document.getElementById('owner-btn-text');
+
+            if (isOwnerLoggedIn) {
+                statusEl.innerHTML = `
+                    <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-500">OWNER ACTIVE</span>
+                `;
+                btnText.innerText = "SIGN OUT";
+            } else {
+                statusEl.innerHTML = `
+                    <div class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-editorial-muted dark:text-darkmode-muted">GUEST MODE</span>
+                `;
+                btnText.innerText = "SIGN IN";
+            }
+            renderPlaylist();
+            renderGallery();
+            renderProjects();
+        }
+
+
+        // MULTI-LANGUAGE DICTIONARY
+        const translations = {
+            id: {
+                nav: "NAVIGASI", home: "HOME", about: "ABOUT", skills: "SKILLS", projects: "PROJECTS", music_page: "MUSIC PLAYLIST", gallery_page: "VISUAL GALLERY", experience: "EXPERIENCE", certificates: "CERTIFICATES", contact: "CONTACT",
+                portofolio_title: "PORTOFOLIO", hero_big_title: "PORTOFOLIO", subtitle: "CREATIVE DEVELOPER & UI DESIGNER",
+                tagline: "DIGITAL EXPERIENCES THAT MOVE WITH YOU.", explore_work: "EXPLORE WORK", contact_me: "CONTACT ME",
+                edition: "EDITION", location: "BASED IN YOGYAKARTA", curated_universe: "// CURATED UNIVERSE",
+                featured_playlist_title: "SOUNDTRACK ROTATION", soundtrack: "SOUNDTRACK ROTATION", now_playing: "NOW PLAYING", upload_music: "UPLOAD LAGU",
+                visual_gallery: "GALLERY & ASSETS", upload_photo_device: "UPLOAD FOTO",
+                gallery_empty: "Belum ada foto di galeri. Gunakan tombol upload di atas untuk menambahkan foto.",
+                select_language: "PILIH BAHASA", connect_support: "CONNECT & SUPPORT.", send_direct_message: "KIRIM PESAN LANGSUNG",
+                your_name: "NAMA ANDA", your_message: "PESAN / PERTANYAAN", delivery_method: "PILIH METODE PENGIRIMAN",
+                send_now: "KIRIM PESAN SEKARANG", saved_works: "PROYEK FAVORIT SAYA", empty_wishlist: "Belum ada item tersimpan. Klik ikon hati pada proyek untuk menyimpan ke sini.",
+                about_profile: "// ABOUT PROFILE", about_desc: "Halo! Nama lengkap saya Firman M. Ubaidah (ウバイダ), seorang web developer, UI designer, dan digital content creator yang berpusat di Yogyakarta.",
+                dev_ethos: "DEVELOPMENT & CREATIVE ETHOS", dev_ethos_desc: "Menggabungkan ketelitian teknis front-end dengan estetika visual editorial yang bersih untuk menghadirkan pengalaman web yang cepat dan responsif.",
+                years_coding: "Years Coding", domicile: "Domicile Base", tech_prof: "// TECHNICAL PROFICIENCY", skills_title: "SKILLS & CAPABILITIES", skills_subtitle: "Daftar keahlian teknis dengan tingkat penguasaan profesional (50% - 90%).",
+                portfolio_showcase: "// PORTFOLIO SHOWCASE", projects_title: "FEATURED PROJECTS", exp_title: "WORK EXPERIENCE", exp_subtitle: "Jejak langkah profesional di bidang web development dan digital content creation.",
+                cert_title: "CERTIFICATES & AWARDS", cert_subtitle: "Sertifikasi resmi dan penghargaan atas keahlian pemrograman web.",
+                connect_desc: "Hubungi saya melalui berbagai platform sosial resmi atau kirim pesan instan langsung.",
+                search_title: "// PENCARIAN PORTFOLIO", search_page: "SEARCH", wishlist_page: "WISHLIST", saved_items: "// ITEM TERSIMPAN", lyrics_mode: "// LYRICS & VIBE MODE"
+            },
+            en: {
+                nav: "NAVIGATION", home: "HOME", about: "ABOUT", skills: "SKILLS", projects: "PROJECTS", music_page: "MUSIC PLAYLIST", gallery_page: "VISUAL GALLERY", experience: "EXPERIENCE", certificates: "CERTIFICATES", contact: "CONTACT",
+                portofolio_title: "PORTFOLIO", hero_big_title: "PORTFOLIO", subtitle: "CREATIVE DEVELOPER & UI DESIGNER",
+                tagline: "DIGITAL EXPERIENCES THAT MOVE WITH YOU.", explore_work: "EXPLORE WORK", contact_me: "CONTACT ME",
+                edition: "EDITION", location: "BASED IN YOGYAKARTA", curated_universe: "// CURATED UNIVERSE",
+                featured_playlist_title: "SOUNDTRACK ROTATION", soundtrack: "SOUNDTRACK ROTATION", now_playing: "NOW PLAYING", upload_music: "UPLOAD MUSIC",
+                visual_gallery: "GALLERY & ASSETS", upload_photo_device: "UPLOAD PHOTO",
+                gallery_empty: "No photos in gallery yet. Use the upload button above to add photos.",
+                select_language: "SELECT LANGUAGE", connect_support: "CONNECT & SUPPORT.", send_direct_message: "SEND A DIRECT MESSAGE",
+                your_name: "YOUR NAME", your_message: "YOUR MESSAGE", delivery_method: "CHOOSE DELIVERY METHOD",
+                send_now: "TRANSMIT MESSAGE NOW", saved_works: "SAVED PROJECTS SHOWCASE", empty_wishlist: "No saved items yet. Click the heart icon on any project card to save it here.",
+                about_profile: "// ABOUT PROFILE", about_desc: "Hello! My full name is Firman M. Ubaidah (ウバイダ), a web developer, UI designer, and digital content creator based in Yogyakarta.",
+                dev_ethos: "DEVELOPMENT & CREATIVE ETHOS", dev_ethos_desc: "Combining technical front-end precision with clean editorial visual aesthetics.",
+                years_coding: "Years Coding", domicile: "Domicile Base", tech_prof: "// TECHNICAL PROFICIENCY", skills_title: "SKILLS & CAPABILITIES", skills_subtitle: "List of technical proficiencies ranging from 50% to 90%.",
+                portfolio_showcase: "// PORTFOLIO SHOWCASE", projects_title: "FEATURED PROJECTS", exp_title: "WORK EXPERIENCE", exp_subtitle: "Professional track record in web development and digital content creation.",
+                cert_title: "CERTIFICATES & AWARDS", cert_subtitle: "Official certifications and awards in web programming.",
+                connect_desc: "Get in touch via official social platforms or send a direct message.",
+                search_title: "// PORTFOLIO SEARCH", search_page: "SEARCH", wishlist_page: "WISHLIST", saved_items: "// SAVED ITEMS", lyrics_mode: "// LYRICS & VIBE MODE"
+            },
+            ko: {
+                nav: "내비게이션", home: "홈", about: "소개", skills: "기술", projects: "프로젝트", music_page: "음악 플레이리스트", gallery_page: "비주얼 갤러리", experience: "경력", certificates: "자격증", contact: "연락처",
+                portofolio_title: "포트폴리오", hero_big_title: "포트폴리오", subtitle: "크리에이티브 개발자 & UI 디자이너",
+                tagline: "당신과 함께 움직이는 디지털 경험.", explore_work: "작업 탐색", contact_me: "연락하기",
+                edition: "에디션", location: "족자카르타 거주", curated_universe: "// 큐레이티드 유니버스",
+                featured_playlist_title: "사운드트랙 로테이션", soundtrack: "사운드트랙 로테이션", now_playing: "재생 중", upload_music: "음악 업로드",
+                visual_gallery: "갤러리", upload_photo_device: "사진 업로드",
+                gallery_empty: "갤러리에 사진이 없습니다.",
+                select_language: "언어 선택", connect_support: "연결 및 지원", send_direct_message: "다이렉트 메시지 보내기",
+                your_name: "이름", your_message: "메시지 내용", delivery_method: "전송 방법 선택",
+                send_now: "메시지 전송", saved_works: "저장된 프로젝트", empty_wishlist: "저장된 항목이 없습니다.",
+                about_profile: "// 소개 프로필", about_desc: "안녕하세요! 파르만 M. 우바이다(ウバイダ)입니다. 족자카르타를 기반으로 활동하는 웹 개발자입니다.",
+                dev_ethos: "개발 및 창의적 이념", dev_ethos_desc: "인터랙티브 웹 응용 프로그램 및 깔끔한 에디토리얼 미학.",
+                years_coding: "코딩 연차", domicile: "거주지", tech_prof: "// 기술 숙련도", skills_title: "기술 및 역량", skills_subtitle: "50%에서 90% 사이의 전문 기술 숙련도.",
+                portfolio_showcase: "// 포트폴리오 쇼케이스", projects_title: "추천 프로젝트", exp_title: "경력 사항", exp_subtitle: "웹 개발 및 디지털 콘텐츠 제작 경력.",
+                cert_title: "자격증 및 상장", cert_subtitle: "웹 프로그래밍 공식 인증 및 상장.",
+                connect_desc: "공식 소셜 플랫폼을 통해 연락하거나 다이렉트 메시지를 보내세요.",
+                search_title: "// 포트폴리오 검색", search_page: "검색", wishlist_page: "위시리스트", saved_items: "// 저장된 항목", lyrics_mode: "// 가사 및 바이브 모드"
+            },
+            ja: {
+                nav: "ナビゲーション", home: "ホーム", about: "概要", skills: "スキル", projects: "プロジェクト", music_page: "音楽プレイリスト", gallery_page: "ビジュアルギャラリー", experience: "経歴", certificates: "資格", contact: "お問い合わせ",
+                portofolio_title: "ポートフォリオ", hero_big_title: "ポートフォリオ", subtitle: "クリエイティブ開発者 & UIデザイナー",
+                tagline: "あなたと共に動くデジタル体験。", explore_work: "作品を見る", contact_me: "連絡する",
+                edition: "エディション", location: "ジョグジャカルタ拠点", curated_universe: "// キュレートされた世界",
+                featured_playlist_title: "サウンドトラック", soundtrack: "サウンドトラック", now_playing: "再生中", upload_music: "音楽をアップロード",
+                visual_gallery: "ギャラリー", upload_photo_device: "写真をアップロード",
+                gallery_empty: "ギャラリーに写真がありません。",
+                select_language: "言語を選択", connect_support: "接続とサポート", send_direct_message: "ダイレクトメッセージ送信",
+                your_name: "お名前", your_message: "メッセージ内容", delivery_method: "送信方法を選択",
+                send_now: "メッセージを送信", saved_works: "保存されたプロジェクト", empty_wishlist: "保存されたアイテムはありません。",
+                about_profile: "// プロフィール概要", about_desc: "こんにちは！フィルマン M. ウバイダ（ウバイダ）です。ジョグジャカルタを拠点とするWeb開発者です。",
+                dev_ethos: "開発とクリエイティブ理念", dev_ethos_desc: "フロントエンドの技術的精度とクリーンなエディトリアル美学の融合。",
+                years_coding: "コーディング年数", domicile: "拠点", tech_prof: "// 技術習熟度", skills_title: "スキルと能力", skills_subtitle: "50%〜90%の範囲の専門技術スキル。",
+                portfolio_showcase: "// ポートフォリオ", projects_title: "注目プロジェクト", exp_title: "職歴", exp_subtitle: "Web開発およびデジタルコンテンツ制作における実績。",
+                cert_title: "資格と賞", cert_subtitle: "Webプログラミングにおける公式認定および賞。",
+                connect_desc: "公式SNSまたはダイレクトメッセージでお気軽にご連絡ください。",
+                search_title: "// ポートフォリオ検索", search_page: "検索", wishlist_page: "ウィッシュリスト", saved_items: "// 保存済みアイテム", lyrics_mode: "// 歌詞＆バイブモード"
+            },
+            zh: {
+                nav: "导航", home: "首页", about: "关于", skills: "技能", projects: "项目", music_page: "音乐播放列表", gallery_page: "视觉画廊", experience: "经历", certificates: "证书", contact: "联系",
+                portofolio_title: "作品集", hero_big_title: "作品集", subtitle: "创意开发者 & UI设计师",
+                tagline: "随您而动的数字体验。", explore_work: "探索作品", contact_me: "联系我",
+                edition: "版本", location: "总部位于日惹", curated_universe: "// 精选宇宙",
+                featured_playlist_title: "原声带轮换", soundtrack: "原声带轮换", now_playing: "正在播放", upload_music: "上传音乐",
+                visual_gallery: "视觉画廊", upload_photo_device: "上传照片",
+                gallery_empty: "画廊中暂无照片。",
+                select_language: "选择语言", connect_support: "连接与支持", send_direct_message: "发送直接消息",
+                your_name: "您的姓名", your_message: "您的留言", delivery_method: "选择投递方式",
+                send_now: "立即发送消息", saved_works: "保存的项目展示", empty_wishlist: "暂无保存的项目。",
+                about_profile: "// 关于个人资料", about_desc: "你好！我是 Firman M. Ubaidah (ウバイダ)，一名常驻日惹的网页开发者与UI设计师。",
+                dev_ethos: "开发与创意理念", dev_ethos_desc: "将前端技术精度与干净的杂志风格排版美学相结合。",
+                years_coding: "编码年限", domicile: "常驻地", tech_prof: "// 技术专长", skills_title: "技能与能力", skills_subtitle: "专业技术熟练度列表（50% - 90%）。",
+                portfolio_showcase: "// 作品集展示", projects_title: "精选项目", exp_title: "工作经历", exp_subtitle: "在网页开发和数字内容创作方面的专业履历。",
+                cert_title: "证书与奖项", cert_subtitle: "网页编程领域的官方认证与奖项。",
+                connect_desc: "通过官方社交平台与我联系或直接发送消息。",
+                search_title: "// 作品集搜索", search_page: "搜索", wishlist_page: "收藏夹", saved_items: "// 已保存项目", lyrics_mode: "// 歌词与氛围模式"
+            },
+            ru: {
+                nav: "НАВИГАЦИЯ", home: "ГЛАВНАЯ", about: "О СЕБЕ", skills: "НАВЫКИ", projects: "ПРОЕКТЫ", music_page: "МУЗЫКА", gallery_page: "ГАЛЕРЕЯ", experience: "ОПЫТ", certificates: "СЕРТИФИКАТЫ", contact: "КОНТАКТЫ",
+                portofolio_title: "ПОРТФОЛИО", hero_big_title: "ПОРТФОЛИО", subtitle: "КРЕАТИВНЫЙ РАЗРАБОТЧИК & UI ДИЗАЙНЕР",
+                tagline: "ЦИФРОВЫЕ ВПЕЧАТЛЕНИЯ, КОТОРЫЕ ДВИЖУТСЯ С ВАМИ.", explore_work: "СМОТРЕТЬ РАБОТЫ", contact_me: "СВЯЗАТЬСЯ",
+                edition: "ВЫПУСК", location: "БАЗИРУЕТСЯ В ДЖОКЬЯКАРТЕ", curated_universe: "// КУРИРУЕМАЯ ВСЕЛЕННАЯ",
+                featured_playlist_title: "МУЗЫКА", soundtrack: "МУЗЫКА", now_playing: "ИГРАЕТ СЕЙЧАС", upload_music: "ЗАГРУЗИТЬ МУЗЫКУ",
+                visual_gallery: "ГАЛЕРЕЯ", upload_photo_device: "ЗАГРУЗИТЬ ФОТО",
+                gallery_empty: "В галерее пока нет фото.",
+                select_language: "ВЫБЕРИТЕ ЯЗЫК", connect_support: "ПОДДЕРЖКА И СВЯЗЬ", send_direct_message: "ОТПРАВИТЬ СООБЩЕНИЕ",
+                your_name: "ВАШЕ ИМЯ", your_message: "ВАШЕ СООБЩЕНИЕ", delivery_method: "МЕТОД ДОСТАВКИ",
+                send_now: "ОТПРАВИТЬ СЕЙЧАС", saved_works: "СОХРАНЕННЫЕ ПРОЕКТЫ", empty_wishlist: "Нет сохраненных элементов.",
+                about_profile: "// ПРОФИЛЬ", about_desc: "Привет! Меня зовут Фирман М. Убаидах (ウバイダ). Я веб-разработчик и UI дизайнер из Джокьякарты.",
+                dev_ethos: "ФИЛОСОФИЯ РАЗРАБОТКИ", dev_ethos_desc: "Сочетание технической точности и чистого редакционного дизайна.",
+                years_coding: "Лет кодинга", domicile: "Базирование", tech_prof: "// ТЕХНИЧЕСКИЕ НАВЫКИ", skills_title: "НАВЫКИ", skills_subtitle: "Список профессиональных навыков (50% - 90%).",
+                portfolio_showcase: "// ПОРТФОЛИО", projects_title: "ПРОЕКТЫ", exp_title: "ОПЫТ РАБОТЫ", exp_subtitle: "Профессиональный путь в веб-разработке.",
+                cert_title: "СЕРТИФИКАТЫ И НАГРАДЫ", cert_subtitle: "Официальные сертификаты.",
+                connect_desc: "Свяжитесь со мной через социальные сети.",
+                search_title: "// ПОИСК ПО ПОРТФОЛИО", search_page: "ПОИСК", wishlist_page: "ИЗБРАННОЕ", saved_items: "// СОХРАНЕННОЕ", lyrics_mode: "// РЕЖИМ ТЕКСТА"
+            },
+            jv: {
+                nav: "NAVIGASI", home: "UTAMA", about: "TENTANG", skills: "KAHESAN", projects: "PROYEK", music_page: "PLAYLIST LAGU", gallery_page: "GALERI VISUAL", experience: "PENGALAMAN", certificates: "SERTIFIKAT", contact: "KONTAK",
+                portofolio_title: "PORTOFOLIO", hero_big_title: "PORTOFOLIO", subtitle: "CREATIVE DEVELOPER & UI DESIGNER",
+                tagline: "PENGALAMAN DIGITAL SING MLEBU KEROBAK.", explore_work: "TINGALI KARYA", contact_me: "HUBUNGI KULA",
+                edition: "EDISI", location: "YOGYAKARTA", curated_universe: "// JAGAD PILIHAN",
+                featured_playlist_title: "PLAYLIST LAGU", soundtrack: "ROTASI SOUNDTRACK", now_playing: "LAGU DITECOK", upload_music: "UPLOAD LAGU",
+                visual_gallery: "GALERI VISUAL", upload_photo_device: "UPLOAD FOTO",
+                gallery_empty: "Durung ana foto ing galeri.",
+                select_language: "PILIH BASA", connect_support: "KONEKSI & DHUKUNGAN", send_direct_message: "KIRIM PESEN LANGSUNG",
+                your_name: "ASMANE PANJENENGAN", your_message: "ISI PESEN", delivery_method: "PILIH CARA NGIRIM",
+                send_now: "KIRIM PESEN", saved_works: "PROYEK PILIHAN", empty_wishlist: "Durung ana item sing disimpen.",
+                about_profile: "// PROFIL TENTANG KULA", about_desc: "Kula Firman M. Ubaidah (ウバイダ), web developer lan digital content creator ing Yogyakarta.",
+                dev_ethos: "PRINSIP PEMBUATAN", dev_ethos_desc: "Fokus ing pangembangan aplikasi web interaktif lan desain antarmuka sing resik.",
+                years_coding: "Taun Ngoding", domicile: "Domisili", tech_prof: "// KAHESAN TEKNIS", skills_title: "KAHESAN & KAPABILITAS", skills_subtitle: "Dhaptar kapabilitas teknis (50% - 90%).",
+                portfolio_showcase: "// Pameran Proyek", projects_title: "PROYEK UTAMA", exp_title: "PENGALAMAN KERJA", exp_subtitle: "Jejak langkah profesional ing babagan web development.",
+                cert_title: "SERTIFIKAT & PENGHARGAAN", cert_subtitle: "Sertifikasi resmi pemrograman web.",
+                connect_desc: "Hubungi kula liwat media sosial resmi utawa kirim pesan langsung.",
+                search_title: "// PENCARIAN PORTFOLIO", search_page: "GOLEKI", wishlist_page: "FAVORIT", saved_items: "// ITEM DISIMPEN", lyrics_mode: "// MODE LIRIK & VIBE"
+            }
+        };
+
+        let currentLang = 'id';
+
+        function setLanguage(langCode) {
+            currentLang = langCode;
+            const dict = translations[langCode] || translations['id'];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) {
+                    el.innerText = dict[key];
+                }
+            });
+            closeLanguageModal();
+            showToast(`Language switched successfully!`);
+        }
+
+        function filterLanguages() {
+            const query = document.getElementById('lang-search').value.toLowerCase();
+            const list = document.getElementById('lang-list');
+            const buttons = list.getElementsByTagName('button');
+            for (let btn of buttons) {
+                const text = btn.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    btn.style.display = 'flex';
+                } else {
+                    btn.style.display = 'none';
+                }
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            updateOwnerUI();
+            renderPlaylist();
+            renderGallery();
+            renderProjects();
+            handleUrlHash();
+        });
+
+        window.addEventListener('hashchange', () => {
+            handleUrlHash();
+        });
+
+        function handleUrlHash() {
+            const hash = window.location.hash.replace('#', '');
+            const validViews = ['hero', 'about', 'skills', 'projects', 'music', 'gallery', 'experience', 'certificates', 'contact', 'search', 'wishlist'];
+            if (validViews.includes(hash)) {
+                switchView(hash, false);
+            } else {
+                switchView('hero', false);
+            }
+        }
+
+        function switchView(targetSection, updateHash = true) {
+            if (updateHash) {
+                window.location.hash = targetSection === 'hero' ? '' : targetSection;
+            }
+
+            const views = document.querySelectorAll('.app-view');
+            views.forEach(v => v.classList.add('hidden'));
+
+            const activeView = document.getElementById(`view-${targetSection}`);
+            if (activeView) {
+                activeView.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
 
             if (targetSection === 'skills') {
                 setTimeout(animateSkills, 200);
             }
 
             lucide.createIcons();
-        }
-
-        function openActionModal(action) {
-            switchView(action);
-        }
-
-        function closeModal() {
-            const modalWrapper = document.getElementById('modal-wrapper');
-            const modalBackdrop = document.getElementById('modal-backdrop');
-            const modalContainer = document.getElementById('modal-card');
-
-            modalBackdrop.classList.add('opacity-0');
-            modalContainer.classList.add('translate-y-full');
-
-            setTimeout(() => {
-                modalWrapper.classList.add('pointer-events-none', 'opacity-0');
-            }, 300);
-
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                if (btn.getAttribute('data-target') === 'hero') {
-                    btn.classList.add('opacity-100');
-                    btn.classList.remove('opacity-60');
-                } else {
-                    btn.classList.remove('opacity-100');
-                    btn.classList.add('opacity-60');
-                }
-            });
         }
 
         function animateSkills() {
@@ -779,171 +1806,142 @@
             });
         }
 
-        function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileMenu.classList.contains('translate-x-full')) {
-                mobileMenu.classList.remove('translate-x-full');
+        function toggleNavSidebar() {
+            const sidebar = document.getElementById('nav-sidebar');
+            const backdrop = document.getElementById('nav-sidebar-backdrop');
+            if (sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.remove('-translate-x-full');
+                backdrop.classList.remove('opacity-0', 'pointer-events-none');
             } else {
-                mobileMenu.classList.add('translate-x-full');
+                sidebar.classList.add('-translate-x-full');
+                backdrop.classList.add('opacity-0', 'pointer-events-none');
             }
         }
 
-        function initMouseParallax() {
-            const heroPerson = document.getElementById('hero-person-canvas');
-            const heroSection = document.getElementById('hero-section');
-
-            if (!heroPerson || !heroSection) return;
-
-            heroSection.addEventListener('mousemove', (e) => {
-                const { clientX, clientY } = e;
-                const { innerWidth, innerHeight } = window;
-                const moveX = (clientX - innerWidth / 2) / (innerWidth / 2) * 12;
-                const moveY = (clientY - innerHeight / 2) / (innerHeight / 2) * 8;
-                heroPerson.style.transform = `translate3d(${moveX}px, ${moveY}px, 0px) scale(1.02)`;
-            });
-
-            heroSection.addEventListener('mouseleave', () => {
-                heroPerson.style.transform = `translate3d(0px, 0px, 0px) scale(1)`;
-            });
+        function openLanguageModal() {
+            const modal = document.getElementById('language-modal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.remove('scale-95');
         }
 
-        function filterProjects(category) {
-            const cards = document.querySelectorAll('.project-card');
-            const btns = document.querySelectorAll('.project-filter-btn');
-
-            btns.forEach(btn => {
-                btn.classList.remove('bg-editorial-dark', 'text-white');
-                btn.classList.add('border-editorial-dark/20');
-            });
-            event.target.classList.add('bg-editorial-dark', 'text-white');
-
-            cards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
+        function closeLanguageModal() {
+            const modal = document.getElementById('language-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.add('scale-95');
         }
 
-        function toggleWishlist(itemTitle) {
-            const countBadge = document.getElementById('wishlist-count');
-            const container = document.getElementById('wishlist-container');
-            const emptyMsg = document.getElementById('empty-wishlist-msg');
-
-            if (wishlist.has(itemTitle)) {
-                wishlist.delete(itemTitle);
-                showToast(`Removed from saved items.`);
-            } else {
-                wishlist.add(itemTitle);
-                showToast(`Saved "${itemTitle}"`);
-            }
-
-            countBadge.innerText = wishlist.size;
-
-            if (wishlist.size === 0) {
-                if (emptyMsg) emptyMsg.classList.remove('hidden');
-            } else {
-                if (emptyMsg) emptyMsg.classList.add('hidden');
-                container.innerHTML = '';
-                wishlist.forEach(item => {
-                    const div = document.createElement('div');
-                    div.className = 'p-4 border border-editorial-dark/20 flex justify-between items-center bg-editorial-surface';
-                    div.innerHTML = `
-                        <span class="font-bold text-sm uppercase">${item}</span>
-                        <button onclick="toggleWishlist('${item}')" class="text-xs font-bold uppercase tracking-wider text-red-600 hover:underline">REMOVE</button>
-                    `;
-                    container.appendChild(div);
-                });
-            }
-        }
-
-        function handleFormSubmit(e) {
+        function handleDirectMessageSubmit(e) {
             e.preventDefault();
-            showToast("Message Transmitted Successfully!");
-            e.target.reset();
+            const name = document.getElementById('msg-name').value;
+            const text = document.getElementById('msg-text').value;
+            const method = document.getElementById('msg-method').value;
+
+            const encodedMsg = encodeURIComponent(`Halo Firman, saya ${name}. ${text}`);
+            
+            let url = '#';
+            if (method === 'whatsapp') {
+                url = `https://wa.me/62895328768282?text=${encodedMsg}`;
+            } else if (method === 'gmail') {
+                url = `mailto:noelandxyza@gmail.com?subject=Inquiry from ${encodeURIComponent(name)}&body=${encodedMsg}`;
+            } else if (method === 'instagram') {
+                url = `https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=p1dcc6n`;
+            } else if (method === 'telegram') {
+                url = `https://t.me/noelandxyza`;
+            }
+
+            showToast(`Redirecting to ${method.toUpperCase()}...`);
             setTimeout(() => {
-                closeModal();
-            }, 1200);
+                window.open(url, '_blank');
+            }, 1000);
         }
 
-        function performSearch() {
-            const query = document.getElementById('search-input').value.toLowerCase();
+        function performGlobalSearch() {
+            const query = document.getElementById('search-input').value.toLowerCase().trim();
             const results = document.getElementById('search-results');
             
-            if (query.trim() === '') {
+            if (query === '') {
                 results.innerHTML = `
-                    <div class="p-4 border border-editorial-dark/10 cursor-pointer hover:bg-editorial-surface" onclick="switchView('skills')">
-                        <span class="text-[10px] font-bold uppercase tracking-wider text-editorial-muted">SKILL</span>
-                        <h5 class="font-bold text-sm">HTML5, CSS3, Tailwind CSS & JavaScript</h5>
-                    </div>
-                    <div class="p-4 border border-editorial-dark/10 cursor-pointer hover:bg-editorial-surface" onclick="switchView('contact')">
-                        <span class="text-[10px] font-bold uppercase tracking-wider text-editorial-muted">CONTACT</span>
-                        <h5 class="font-bold text-sm">WhatsApp: 0895-3287-68282 | Email: noelandxyza@gmail.com</h5>
+                    <div class="p-4 border border-editorial-dark/10 dark:border-darkmode-border cursor-pointer hover:bg-editorial-surface dark:hover:bg-darkmode-surface shadow-sm transition-all hover:translate-x-1" onclick="switchView('skills')">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-editorial-muted dark:text-darkmode-muted">SKILL</span>
+                        <h5 class="font-bold text-sm">HTML5, Tailwind CSS, JavaScript & Roblox Scripts</h5>
                     </div>
                 `;
                 return;
             }
 
             let html = '';
-            if ('whatsapp 0895328768282 gmail contact'.includes(query)) {
-                html += `
-                    <div class="p-4 border border-editorial-dark/10 cursor-pointer hover:bg-editorial-surface" onclick="switchView('contact')">
-                        <span class="text-[10px] font-bold uppercase tracking-wider text-editorial-muted">CONTACT DETECTED</span>
-                        <h5 class="font-bold text-sm">WhatsApp: 0895-3287-68282 / Email: noelandxyza@gmail.com</h5>
-                    </div>
-                `;
-            }
-            if ('skills html css javascript react design animation performance'.includes(query)) {
-                html += `
-                    <div class="p-4 border border-editorial-dark/10 cursor-pointer hover:bg-editorial-surface" onclick="switchView('skills')">
-                        <span class="text-[10px] font-bold uppercase tracking-wider text-editorial-muted">SKILLS MATCH</span>
-                        <h5 class="font-bold text-sm">Front-End Engineering, Animations & Performance Skills</h5>
-                    </div>
-                `;
-            }
-            if ('projects gaze editorial showcase'.includes(query)) {
-                html += `
-                    <div class="p-4 border border-editorial-dark/10 cursor-pointer hover:bg-editorial-surface" onclick="switchView('projects')">
-                        <span class="text-[10px] font-bold uppercase tracking-wider text-editorial-muted">PROJECT MATCH</span>
-                        <h5 class="font-bold text-sm">Editorial UI & Selected Works Portfolio</h5>
-                    </div>
-                `;
-            }
+            
+            const pages = [
+                { name: 'Home / Hero', view: 'hero' },
+                { name: 'About Profile', view: 'about' },
+                { name: 'Skills & Capabilities', view: 'skills' },
+                { name: 'Featured Projects', view: 'projects' },
+                { name: 'Music Playlist & Audio', view: 'music' },
+                { name: 'Visual Gallery & Assets', view: 'gallery' },
+                { name: 'Work Experience', view: 'experience' },
+                { name: 'Certificates & Awards', view: 'certificates' },
+                { name: 'Contact & Direct Messages', view: 'contact' },
+                { name: 'Saved Wishlist', view: 'wishlist' }
+            ];
+
+            pages.forEach(p => {
+                if (p.name.toLowerCase().includes(query)) {
+                    html += `
+                        <div class="p-4 border border-editorial-dark/20 dark:border-darkmode-border cursor-pointer hover:bg-editorial-surface dark:hover:bg-darkmode-surface shadow-sm transition-all hover:translate-x-1" onclick="switchView('${p.view}')">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-500">HALAMAN / VIEW</span>
+                            <h5 class="font-bold text-sm uppercase">${p.name}</h5>
+                        </div>
+                    `;
+                }
+            });
+
+            playlistData.forEach(t => {
+                if (t.title.toLowerCase().includes(query) || t.artist.toLowerCase().includes(query)) {
+                    html += `
+                        <div class="p-4 border border-editorial-dark/20 dark:border-darkmode-border cursor-pointer hover:bg-editorial-surface dark:hover:bg-darkmode-surface shadow-sm transition-all hover:translate-x-1" onclick="switchView('music')">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-500">LAGU / MUSIC</span>
+                            <h5 class="font-bold text-sm uppercase">${t.title} - ${t.artist}</h5>
+                        </div>
+                    `;
+                }
+            });
+
+            galleryItems.forEach(g => {
+                if (g.title.toLowerCase().includes(query)) {
+                    html += `
+                        <div class="p-4 border border-editorial-dark/20 dark:border-darkmode-border cursor-pointer hover:bg-editorial-surface dark:hover:bg-darkmode-surface shadow-sm transition-all hover:translate-x-1" onclick="switchView('gallery')">
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-blue-500">FOTO / GALLERY</span>
+                            <h5 class="font-bold text-sm uppercase">${g.title}</h5>
+                        </div>
+                    `;
+                }
+            });
 
             if (html === '') {
-                html = `<p class="text-xs text-editorial-muted uppercase tracking-widest p-4">No results found for "${query}"</p>`;
+                html = `<p class="text-xs opacity-60 uppercase tracking-widest p-4">Tidak ditemukan hasil untuk "${query}".</p>`;
             }
 
             results.innerHTML = html;
-        }
-
-        function copyText(text) {
-            const tempInput = document.createElement('input');
-            tempInput.value = text;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
-            showToast('Link copied to clipboard!');
         }
 
         function showToast(message) {
             const toast = document.getElementById('toast');
             const toastMsg = document.getElementById('toast-message');
             toastMsg.innerText = message;
-            toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-10px]');
+            toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-15px]');
             toast.classList.add('opacity-100', 'translate-y-0');
 
             setTimeout(() => {
                 toast.classList.remove('opacity-100', 'translate-y-0');
-                toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-10px]');
+                toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-15px]');
             }, 2500);
         }
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
-                closeModal();
+                closeLanguageModal();
+                closeLightbox();
+                closeOwnerLoginModal();
             }
         });
     </script>
